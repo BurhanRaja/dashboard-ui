@@ -26,7 +26,7 @@ const AdminDashboard = () => {
         title={"Dashboard"}
         breadcrumb={[{ name: "Dashboard", link: "/admin/dashboard" }]}
       >
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 mb-6">
+        <div className="grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-6">
           <DashCard
             title={"Total Clients"}
             icon={
@@ -63,8 +63,6 @@ const AdminDashboard = () => {
             link={"/"}
             count={6}
           />
-        </div>
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 mb-10">
           <DashCard
             title={"Pending Deposits"}
             icon={

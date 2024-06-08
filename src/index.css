@@ -5,7 +5,7 @@
 
 @layer base {
   :root {
-    --main-bg: #e2e8f0;
+    --main-bg: #fdfdfd;
     --text-dark: rgb(15 23 42);
     --text-light: rgb(241 245 249);
     --primary: rgb(234 85 15);
@@ -18,6 +18,7 @@
     --info: rgb(14 165 233);
     --success: #7ca40a;
     --warning: #ffdb5c;
+    --btn-text: white;
   }
 
   html {
@@ -59,4 +60,9 @@
     background: rgb(30 41 59);
     width: 1px;
   }
+}
+
+.rd3t-tree-container svg .rd3t-g path {
+  stroke: rgb(148 163 184);
+  stroke-width: 2;
 }

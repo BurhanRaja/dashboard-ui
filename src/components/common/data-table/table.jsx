@@ -13,17 +13,21 @@ import { cn } from "lib/utils";
 const CustomTable = ({ table, columns, theme }) => {
   console.log(table.getRowModel().rows);
   return (
-    <Table className="mb-0 h-10">
+    <Table className="mb-0 h-10" checkBorder theme={theme}>
       <TableHeader
         className={cn(
-          theme == "dark" ? "bg-slate-900 text-white" : "bg-gray-300"
+          theme == "dark" ? "bg-gray-950 text-white" : "bg-gray-300"
         )}
       >
         {table.getHeaderGroups().map((headerGroup) => (
           <TableRow key={headerGroup.id}>
             {headerGroup.headers.map((header) => {
               return (
-                <TableHead key={header.id} colSpan={header.colSpan}>
+                <TableHead
+                  key={header.id}
+                  colSpan={header.colSpan}
+                  className="text-center"
+                >
                   {header.isPlaceholder
                     ? null
                     : flexRender(
@@ -65,7 +69,7 @@ const CustomTable = ({ table, columns, theme }) => {
               className={cn(
                 "h-12 text-center",
 
-                theme == "dark" ? "bg-slate-800 text-white" : "bg-slate-100   "
+                theme == "dark" ? "bg-slate-900 text-white" : "bg-slate-100   "
               )}
             >
               No results.

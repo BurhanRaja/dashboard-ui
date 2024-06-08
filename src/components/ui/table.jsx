@@ -2,15 +2,27 @@ import * as React from "react";
 
 import { cn } from "lib/utils";
 
-const Table = React.forwardRef(({ className, ...props }, ref) => (
-  <div className="relative w-full overflow-auto">
-    <table
-      ref={ref}
-      className={cn("w-full caption-bottom text-sm", className)}
-      {...props}
-    />
-  </div>
-));
+const Table = React.forwardRef(
+  ({ className, checkBorder, theme, ...props }, ref) => (
+    <div
+      className={cn(
+        "relative w-full overflow-auto",
+        checkBorder && theme == "dark"
+          ? "border border-slate-800 rounded-md"
+          : "",
+        checkBorder && theme == "light"
+          ? "border border-slate-300 rounded-md"
+          : ""
+      )}
+    >
+      <table
+        ref={ref}
+        className={cn("w-full caption-bottom text-sm", className)}
+        {...props}
+      />
+    </div>
+  )
+);
 Table.displayName = "Table";
 
 const TableHeader = React.forwardRef(({ className, ...props }, ref) => (

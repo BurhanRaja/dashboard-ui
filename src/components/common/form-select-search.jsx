@@ -50,14 +50,18 @@ const FormSelectSearch = ({
           </Button>
         </PopoverTrigger>
         <PopoverContent
-          className={cn("p-0 border-none", width ? width : "w-[350px] ")}
+          className={cn(
+            "p-0",
+            width ? width : "w-[350px] ",
+            theme == "dark" ? "border-gray-700" : ""
+          )}
         >
           <Command
             className={cn(
-              theme == "dark" ? "bg-gray-900 text-white" : "bg-white"
+              theme == "dark" ? "bg-gray-950 text-white" : "bg-white"
             )}
           >
-            <CommandInput placeholder="Search..." />
+            <CommandInput theme={theme} placeholder="Search..." />
             <CommandEmpty>{emptyText}</CommandEmpty>
             <CommandList>
               <CommandGroup>

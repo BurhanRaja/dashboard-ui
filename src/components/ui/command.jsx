@@ -29,8 +29,14 @@ const CommandDialog = ({ children, ...props }) => {
   );
 };
 
-const CommandInput = React.forwardRef(({ className, ...props }, ref) => (
-  <div className="flex items-center border-b px-3" cmdk-input-wrapper="">
+const CommandInput = React.forwardRef(({ className, theme, ...props }, ref) => (
+  <div
+    className={cn(
+      "flex items-center border-b px-3",
+      theme == "dark" ? "border-gray-700" : ""
+    )}
+    cmdk-input-wrapper=""
+  >
     <Search className="mr-2 h-4 w-4 shrink-0 opacity-50" />
     <CommandPrimitive.Input
       ref={ref}

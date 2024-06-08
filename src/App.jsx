@@ -33,6 +33,10 @@ import ApprovedDocumentList from "pages/admin/user-management/approved-document-
 import BankDetailsList from "pages/admin/user-management/bank-details-list";
 import UserPasswordList from "pages/admin/user-management/user-password-list";
 import BonusList from "pages/admin/bonus/bonus-list";
+import IBUserList from "pages/admin/ib-management/ib-user-list";
+import IBRequestList from "pages/admin/ib-management/ib-request-list";
+import IBPlanList from "pages/admin/ib-management/ib-plan-list";
+import IBTreeChart from "pages/admin/ib-management/ib-tree-chart";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -98,6 +102,12 @@ function App() {
                 <Route path="givebonus" element={<GiveBonus />} />
                 <Route path="removebonus" element={<RemoveBonus />} />
                 <Route path="bonuslist" element={<BonusList />} />
+              </Route>
+              <Route path="/admin/ibmanagment">
+                <Route path="ibuserlist" element={<IBUserList />} />
+                <Route path="ibrequestlist" element={<IBRequestList />} />
+                <Route path="ibplanlist" element={<IBPlanList />} />
+                <Route path="treetest/:id" element={<IBTreeChart />} />
               </Route>
               <Route path="/admin/groupmanagement">
                 <Route path="addgroup" element={<AddGroup />} />

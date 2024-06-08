@@ -57,6 +57,9 @@ module.exports = {
         warning: {
           DEFAULT: "var(--warning)",
         },
+        btntext: {
+          DEFAULT: "var(--btn-text)",
+        },
       },
       keyframes: {
         "accordion-down": {

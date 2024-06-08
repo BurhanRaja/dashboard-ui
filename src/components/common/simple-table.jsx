@@ -13,15 +13,19 @@ import { cn } from "lib/utils";
 const SimpleTable = ({ caption, headData, bodyData, theme }) => {
   return (
     <Table
-      className={cn(theme == "dark" ? "text-white" : "")}
+      checkBorder
+      theme={theme}
+      className={cn("", theme == "dark" ? "text-white" : "")}
       style={{ padding: "0" }}
     >
       <TableCaption>{caption}</TableCaption>
-      <TableHeader>
+      <TableHeader
+        className={cn("", theme == "dark" ? "bg-gray-950" : "bg-slate-200")}
+      >
         <TableRow>
           {headData?.map((el) => {
             return (
-              <TableHead key={el?.name} className={el?.style}>
+              <TableHead key={el?.name} className={cn(el?.style, "font-semibold")}>
                 {el?.name}
               </TableHead>
             );

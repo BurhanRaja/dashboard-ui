@@ -24,7 +24,7 @@ export function Navbar({ breadcrumb, title }) {
       <header className="w-[100%]">
         <div
           className={cn(
-            "mx-4 sm:mx-2 flex h-20 rounded-md items-center backdrop-blur-lg px-7",
+            "sm:mx-2 flex h-20 rounded-md items-center backdrop-blur-lg lg:px-7 md:px-7 px-2 lg:mx-4 md:mx-2 mx-1",
             theme == "dark" ? "bg-darkactive/40" : "bg-lightactive/40"
           )}
         >
@@ -53,7 +53,7 @@ export function Navbar({ breadcrumb, title }) {
               </Breadcrumb>
               <h1
                 className={cn(
-                  "font-semibold text-3xl",
+                  "font-semibold lg:text-3xl md:text-2xl text-xl",
                   theme == "dark" ? "text-white" : ""
                 )}
               >
@@ -64,13 +64,13 @@ export function Navbar({ breadcrumb, title }) {
           <div className="flex flex-1 items-center justify-end">
             <div
               className={cn(
-                "flex space-x-2 rounded-full items-center  p-3 py-2",
+                "flex space-x-2 rounded-full items-center xl:p-3 xl:py-2 lg:p-3 lg:py-2 md:p-2 md:py-1.5 p-1",
                 theme == "dark"
                   ? "bg-slate-950 shadow-[7px_7px_15px_0px_rgba(6,7,11,0.72)]"
                   : "bg-white shadow-[14px_17px_40px_4px_rgba(112,144,176,0.18)]"
               )}
             >
-              <div className="relative flex items-center">
+              <div className="relative items-center xl:flex lg:flex md:flex hidden">
                 <span className="absolute">
                   <Search
                     size={15}
@@ -88,6 +88,15 @@ export function Navbar({ breadcrumb, title }) {
                     theme == "dark"
                       ? "bg-slate-900 border-none text-white"
                       : "text-gray-700 bg-white/50 border-gray-200 "
+                  )}
+                />
+              </div>
+              <div className="xl:hidden lg:hidden md:hidden block">
+                <Search
+                  size={20}
+                  className={cn(
+                    "w-4 h-4 mx-1",
+                    theme == "dark" ? "text-white" : "text-darkicon"
                   )}
                 />
               </div>

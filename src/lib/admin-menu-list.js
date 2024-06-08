@@ -1,3 +1,4 @@
+import ThemeContext from "context/theme-context";
 import {
   Users,
   Settings,
@@ -17,8 +18,11 @@ import {
   Ticket,
   Shield,
 } from "lucide-react";
+import { useContext } from "react";
 
 export function getMenuList(pathname) {
+  const { theme } = useContext(ThemeContext);
+
   return [
     {
       menus: [
@@ -174,23 +178,25 @@ export function getMenuList(pathname) {
         {
           href: "",
           label: "IB Management",
-          active: pathname.includes("/admin/dashboard/user"),
+          active: pathname.includes("/admin/ibmanagment"),
           icon: Network,
           submenus: [
             {
-              href: "/posts",
+              href: "/admin/ibmanagment/ibuserlist",
               label: "IB Users",
-              active: pathname === "/posts",
+              active:
+                pathname === "/admin/ibmanagment/ibuserlist" ||
+                pathname.includes("/admin/ibmanagment/treetest"),
             },
             {
-              href: "/posts/new",
+              href: "/admin/ibmanagment/ibrequestlist",
               label: "IB Request",
-              active: pathname === "/posts/new",
+              active: pathname === "/admin/ibmanagment/ibrequestlist",
             },
             {
-              href: "/posts/new",
+              href: "/admin/ibmanagment/ibplanlist",
               label: "IB Plan",
-              active: pathname === "/posts/new",
+              active: pathname === "/admin/ibmanagment/ibplanlist",
             },
             {
               href: "/posts/new",

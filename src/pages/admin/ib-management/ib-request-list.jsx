@@ -1,13 +1,13 @@
 import AdminCard from "components/admindashboard/common/admin-form";
 import { ContentLayout } from "components/admindashboard/common/content-layout";
 import {
-  ibUserListColumns,
-  ibUserSearchKeys,
-} from "components/admindashboard/data-table/ib-management/ib-user-list-data";
+  ibRequestListColumns,
+  ibRequestSearchKeys,
+} from "components/admindashboard/data-table/ib-management/ib-request-list-data";
 import MainDataTable from "components/common/data-table/main-table";
 import React from "react";
 
-const IBUserList = () => {
+const IBRequestList = () => {
   const ibUsersList = [
     {
       id: 1,
@@ -15,11 +15,8 @@ const IBUserList = () => {
       email: "burhanuddin@techysquad.com",
       phone: 9748920223,
       phoneCode: "+91",
-      ibname: "Jignesh Patel",
-      total_commission: 500.09,
-      available_commission: 90,
-      ibKey: "dj839jdiqwn",
-      marketingname: "",
+      country: "India",
+      createdAt: "2024-06-08",
     },
     {
       id: 2,
@@ -27,11 +24,8 @@ const IBUserList = () => {
       email: "bijal@techysquad.com",
       phone: 9748920223,
       phoneCode: "+91",
-      ibname: "",
-      total_commission: 278.9,
-      available_commission: 90,
-      ibKey: "kuh8uuknkj",
-      marketingname: "Alpa Pithiya",
+      country: "India",
+      createdAt: "2024-06-08",
     },
     {
       id: 2,
@@ -39,22 +33,19 @@ const IBUserList = () => {
       email: "jignesh@techysquad.com",
       phone: 9748920223,
       phoneCode: "+91",
-      ibname: "Nikunj Tagadiya",
-      total_commission: 278.9,
-      available_commission: 90,
-      ibKey: "kuh8uuknkj",
-      marketingname: "",
+      country: "India",
+      createdAt: "2024-06-08",
     },
   ];
 
   return (
     <>
       <ContentLayout
-        title={"IB User List"}
+        title={"IB Request List"}
         breadcrumb={[
           { name: "Dashboard", link: "/admin/dashboard" },
           { name: "User Managment", link: "#" },
-          { name: "IB User List", link: "#" },
+          { name: "IB Request List", link: "#" },
         ]}
       >
         <AdminCard table>
@@ -63,16 +54,15 @@ const IBUserList = () => {
               <div className="flex items-center space-x-2"></div>
             </div>
             <MainDataTable
-              columns={ibUserListColumns}
+              columns={ibRequestListColumns}
               data={ibUsersList?.map((el, index) => {
                 return {
                   ...el,
                   id: index + 1,
-                  referralLink: `http://localhost:5173/register/${el?.ibKey}`,
                   phone: el?.phoneCode + el?.phone,
                 };
               })}
-              searchKeys={ibUserSearchKeys}
+              searchKeys={ibRequestSearchKeys}
               defaultSearchKey={"name"}
               facetFilter={[]}
             />
@@ -84,4 +74,4 @@ const IBUserList = () => {
   );
 };
 
-export default IBUserList;
+export default IBRequestList;
