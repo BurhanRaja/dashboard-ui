@@ -1,0 +1,153 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Yuji+Hentaigana+Akari&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --main-bg: #fdfdfd;
+    --text-dark: rgb(15 23 42);
+    --text-light: rgb(241 245 249);
+    --primary: rgb(234 85 15);
+    --secondary: rgb(166 198 38);
+    --light-active: rgb(241 245 249);
+    --dark-active: rgb(17 24 39);
+    --light-icon: rgb(148 163 184);
+    --dark-icon: rgb(71 85 105);
+    --danger: rgb(220 38 38);
+    --info: rgb(14 165 233);
+    --success: #71c305;
+    --warning: #ffd53e;
+    --btn-text: white;
+    --dark-theme-slate-950: rgb(2 6 23);
+    --dark-theme-slate-900: rgb(15 23 42);
+    --dark-theme-slate-800: rgb(30 41 59);
+    --dark-theme-gray-950: rgb(3 7 18);
+    --dark-theme-gray-900: rgb(17 24 39);
+    --dark-theme-gray-800: rgb(31 41 55);
+    --light-theme-slate-50: rgb(248 250 252);
+    --light-theme-slate-100: rgb(241 245 249);
+    --light-theme-slate-200: rgb(226 232 240);
+    --light-theme-slate-300: rgb(203 213 225);
+  }
+
+  html {
+    /* font-family: "DM Sans", sans-serif; */
+    font-family: "Poppins", sans-serif;
+  }
+  .content {
+    background: radial-gradient(
+      ellipse 80% 80% at 50% -20%,
+      rgba(156, 156, 156, 0.3),
+      rgba(226, 226, 226, 0)
+    );
+  }
+  .apexcharts-tooltip {
+    background-color: #ffe9e9 !important;
+    color: orange !important;
+  }
+
+  /* width */
+  ::-webkit-scrollbar {
+    width: 4px !important;
+    height: 4px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: rgb(241 245 249);
+    width: 1px;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgb(13, 18, 27);
+    width: 1px;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(30 41 59);
+    width: 1px;
+  }
+}
+
+.rd3t-tree-container svg .rd3t-g path {
+  stroke: rgb(148 163 184);
+  stroke-width: 2;
+}
+
+.dark .ql-toolbar .ql-stroke {
+  stroke: rgb(148 163 184);
+  color: rgb(148 163 184);
+}
+
+.dark .ql-toolbar .ql-fill {
+  stroke: rgb(148 163 184);
+  color: rgb(148 163 184);
+}
+
+.dark .ql-toolbar.ql-snow {
+  border: 1px solid rgb(52, 63, 79);
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  background-color: rgb(15 23 42);
+}
+
+.light .ql-toolbar.ql-snow {
+  border: 1px solid #e5e7eb;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.dark .ql-toolbar.ql-snow .ql-picker.ql-expanded .ql-picker-options {
+  background-color: rgb(3 7 18);
+  border: 1px solid rgb(15 23 42);
+  border-color: rgb(26, 35, 58);
+  border-radius: 5px;
+  color: rgb(71 85 105);
+}
+
+.dark .ql-snow.ql-toolbar .ql-picker-item:hover {
+  color: white;
+}
+
+.dark .ql-snow.ql-toolbar .ql-picker-item.ql-selected {
+  color: white;
+}
+
+.dark .ql-snow.ql-toolbar button:hover,
+.dark .ql-snow.ql-toolbar button:hover .ql-stroke,
+.dark .ql-snow.ql-toolbar button:hover .ql-fill {
+  color: white;
+  stroke: white;
+}
+
+.dark .ql-snow.ql-toolbar button.ql-active .ql-stroke,
+.dark .ql-snow.ql-toolbar button.ql-active .ql-fill {
+  color: white;
+  stroke: white;
+}
+
+.dark .ql-container.ql-snow {
+  border: 1px solid rgb(52, 63, 79);
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  color: white;
+  background-color: rgb(15 23 42);
+}
+
+.light .ql-container.ql-snow {
+  border: 1px solid #e5e7eb;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.dark .ql-toolbar .ql-picker .ql-picker-label {
+  fill: rgb(148 163 184);
+  stroke: rgb(148 163 184);
+  color: rgb(148 163 184);
+}
+.dark .ql-snow.ql-toolbar .ql-picker-label:hover .ql-stroke {
+  stroke: rgb(148 163 184);
+}
