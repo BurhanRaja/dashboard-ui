@@ -26,7 +26,7 @@ const AdminDashboard = () => {
         title={"Dashboard"}
         breadcrumb={[{ name: "Dashboard", link: "/admin/dashboard" }]}
       >
-        <div className="grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-6">
+        <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 mb-6">
           <DashCard
             title={"Total Clients"}
             icon={
@@ -100,41 +100,41 @@ const AdminDashboard = () => {
             count={2}
           />
         </div>
-        <div className="grid gap-4 md:grid-cols-1 lg:grid-cols-3 mb-10">
+        <div className="grid gap-4 grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-3 mb-6">
           <DashGraph />
-          <div className="">
-            <Card
-              className={cn(
-                "col-span-3 rounded-3xl",
-                theme == "dark" ? "bg-slate-950 border-none" : "bg-white"
-              )}
-              // style={{
-              //   boxShadow:
-              //     theme == "dark"
-              //       ? "rgb(6 7 11 / 72%) 7px 7px 15px 0px"
-              //       : "7px 8px 13px 6px rgba(112,144,176,0.18)",
-              // }}
-            >
-              <CardHeader>
-                <CardTitle className="mb-3">
-                  <div className="flex items-center justify-between text-2xl">
-                    <p className={cn(theme == "dark" ? "text-white" : "")}>
-                      Latest Clients
-                    </p>
-                    <a href="/" className="text-sm text-primary">
-                      View More
-                    </a>
-                  </div>
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <RecentUsers />
-              </CardContent>
-            </Card>
-          </div>
+          {/* <div className=""> */}
+          <Card
+            className={cn(
+              "rounded-3xl",
+              theme == "dark" ? "bg-slate-950 border-none" : "bg-white"
+            )}
+            // style={{
+            //   boxShadow:
+            //     theme == "dark"
+            //       ? "rgb(6 7 11 / 72%) 7px 7px 15px 0px"
+            //       : "7px 8px 13px 6px rgba(112,144,176,0.18)",
+            // }}
+          >
+            <CardHeader>
+              <CardTitle className="mb-3">
+                <div className="flex items-center justify-between text-2xl">
+                  <p className={cn(theme == "dark" ? "text-white" : "")}>
+                    Latest Clients
+                  </p>
+                  <a href="/" className="text-sm text-primary">
+                    View More
+                  </a>
+                </div>
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <RecentUsers />
+            </CardContent>
+          </Card>
         </div>
+        {/* </div> */}
         {/* <Steps /> */}
-        <div className="grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 my-6">
+        <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 mb-6">
           <DashCard
             title={"Daily Deposits"}
             icon={
@@ -196,7 +196,7 @@ const AdminDashboard = () => {
             small={true}
           />
         </div>
-        <div className="grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 my-6">
+        <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 mb-6">
           <DashCard
             title={"Daily Withdraws"}
             icon={
@@ -258,7 +258,7 @@ const AdminDashboard = () => {
             small={true}
           />
         </div>
-        <div className="grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 my-6">
+        <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 mb-6">
           <DashCard
             title={"Daily IB Withdraws"}
             icon={

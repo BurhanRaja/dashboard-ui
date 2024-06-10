@@ -7,10 +7,9 @@ import React, { useContext } from "react";
 const DashGraph = () => {
   const { theme } = useContext(ThemeContext);
   return (
-    <>
       <div
         className={cn(
-          "w-full col-span-2 rounded-3xl shadow p-4 md:p-6",
+          "w-full xl:col-span-2 rounded-3xl shadow p-4 md:p-6",
           theme == "dark" ? "bg-slate-950" : "bg-white"
         )}
         // style={{
@@ -56,7 +55,7 @@ const DashGraph = () => {
                 <div>
                   <p
                     className={cn(
-                      "text-2xl leading-none font-bold",
+                      "text-2xl leading-none font-semibold",
                       theme == "dark" ? "text-white" : "text-gray-900 "
                     )}
                   >
@@ -175,7 +174,7 @@ const DashGraph = () => {
                 <div>
                   <p
                     className={cn(
-                      "text-2xl leading-none font-bold",
+                      "text-2xl leading-none font-semibold",
                       theme == "dark" ? "text-white" : "text-gray-900 "
                     )}
                   >
@@ -283,7 +282,6 @@ const DashGraph = () => {
           </TabsContent>
         </Tabs>
       </div>
-    </>
   );
 };
 

@@ -41,7 +41,7 @@ const SelectSearch = ({ data, emptyText, value, setValue, margin }) => {
           <ChevronDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-[200px] p-0">
+      <PopoverContent className={cn("w-[200px] md:w-[350px] lg:w-[200px] p-0", theme == "dark" ? "border-slate-800" : "border-slate-300")}>
         <Command
           className={cn(
             theme == "dark" ? "bg-gray-950 text-white" : "bg-white"

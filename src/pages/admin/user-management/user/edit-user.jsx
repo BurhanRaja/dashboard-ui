@@ -1,31 +1,32 @@
 import AdminCard from "components/admindashboard/common/admin-form";
 import { ContentLayout } from "components/admindashboard/common/content-layout";
 import FormInput from "components/common/form-input";
-import FormLabel from "components/common/form-label";
+import CustomFormLabel from "components/common/form-label";
 import FormSelectSearch from "components/common/form-select-search";
 import { Button } from "components/ui/button";
 import React from "react";
 
-const CreateSubAdmin = () => {
+const EditUser = () => {
   return (
     <>
       <ContentLayout
-        title={"Create Sub Admin"}
+        title={"Edit User"}
         breadcrumb={[
           { name: "Dashboard", link: "/admin/dashboard" },
           { name: "User Management", link: "#" },
-          { name: "Create Sub Admin", link: "#" },
+          { name: "User List", link: "/admin/usermanagement/userlist" },
+          { name: "Edit User", link: "#" },
         ]}
       >
         <AdminCard>
           <form>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
               <div className="mb-3">
-                <FormLabel htmlfor={"name"} label="Name" compulsory />
+                <CustomFormLabel htmlfor={"name"} label="Name" compulsory />
                 <FormInput id="name" type={"text"} placeholder={"Enter Name"} />
               </div>
               <div className="mb-3">
-                <FormLabel htmlfor={"email"} label="Email" compulsory />
+                <CustomFormLabel htmlfor={"email"} label="Email" compulsory />
                 <FormInput
                   id="email"
                   type={"email"}
@@ -33,7 +34,11 @@ const CreateSubAdmin = () => {
                 />
               </div>
               <div className="mb-3">
-                <FormLabel htmlfor={"password"} label="Password" compulsory />
+                <CustomFormLabel
+                  htmlfor={"password"}
+                  label="Password"
+                  compulsory
+                />
                 <FormInput
                   id="password"
                   type={"password"}
@@ -41,24 +46,43 @@ const CreateSubAdmin = () => {
                 />
               </div>
               <div className="mb-3">
-                <FormLabel
-                  htmlfor={"admintype"}
-                  label="Admin Type"
+                <CustomFormLabel
+                  htmlfor={"country"}
+                  label="Country"
                   compulsory
                 />
                 <FormSelectSearch
                   data={[]}
-                  emptyText={"No Type Found"}
-                  width={"w-[300px] md:w-[350px]"}
+                  emptyText={"No Country Found"}
                   margin
                 />
               </div>
               <div className="mb-3">
-                <FormLabel htmlfor={"group"} label="Select Group" compulsory />
+                <CustomFormLabel htmlfor={"phone"} label="Phone" compulsory />
+                <div className="grid grid-cols-4 gap-1">
+                  <FormInput id="phone" type={"text"} disabled value={"+998"} />
+                  <div className="col-span-3">
+                    <FormInput
+                      id="phone"
+                      type={"text"}
+                      placeholder={"Enter Phone"}
+                    />
+                  </div>
+                </div>
+              </div>
+              <div className="mb-3">
+                <CustomFormLabel htmlfor={"status"} label="Status" compulsory />
                 <FormSelectSearch
                   data={[]}
-                  emptyText={"No Group Found"}
-                  width={"w-[300px] md:w-[350px]"}
+                  emptyText={"No status Found"}
+                  margin
+                />
+              </div>
+              <div className="mb-3">
+                <CustomFormLabel htmlfor={"marketing"} label="Marketing" />
+                <FormSelectSearch
+                  data={[]}
+                  emptyText={"No Marketing Found"}
                   margin
                 />
               </div>
@@ -75,4 +99,4 @@ const CreateSubAdmin = () => {
   );
 };
 
-export default CreateSubAdmin;
+export default EditUser;

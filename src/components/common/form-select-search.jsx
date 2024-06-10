@@ -51,8 +51,8 @@ const FormSelectSearch = ({
         </PopoverTrigger>
         <PopoverContent
           className={cn(
-            "p-0",
-            width ? width : "w-[350px] ",
+            "p-0 w-inherit",
+            width ? width : " w-[350px]",
             theme == "dark" ? "border-gray-700" : "border-slate-100"
           )}
         >

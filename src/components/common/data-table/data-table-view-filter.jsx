@@ -22,11 +22,14 @@ const DataTableViewFilter = ({ table, theme }) => {
               variant="outline"
               size="sm"
               className={cn(
-                "ml-auto hidden h-9 p-4 lg:flex",
+                "h-9 p-4 flex md:mb-0 mb-3",
                 theme == "dark"
                   ? "bg-slate-900 border-slate-800 text-white"
                   : "bg-slate-100"
               )}
+              style={{
+                marginLeft: '0'
+              }}
             >
               <SlidersHorizontal className="mr-2 h-4 w-4" />
               View

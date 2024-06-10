@@ -28,15 +28,27 @@ export function ModeToggle() {
             }
           >
             {theme == "dark" ? (
-              <Sun
-                size={18}
-                className=" rotate-0 scale-1000 transition-transform ease-in-out duration-500 text-white"
-              />
+              <>
+                <Sun
+                  size={15}
+                  className=" rotate-0 scale-1000 md:hidden block transition-transform ease-in-out duration-500 text-white"
+                />
+                <Sun
+                  size={18}
+                  className=" rotate-0 md:block hidden md:mr-2 scale-1000 transition-transform ease-in-out duration-500 text-white"
+                />
+              </>
             ) : (
-              <Moon
-                size={18}
-                className="rotate-0 scale-1000 transition-transform ease-in-out duration-500 text-lighticon"
-              />
+              <>
+                <Moon
+                  size={18}
+                  className="rotate-0 scale-1000 md:hidden block transition-transform ease-in-out duration-500 text-lighticon"
+                />
+                <Moon
+                  size={18}
+                  className="rotate-0 scale-1000 md:block hidden md:mr-2 transition-transform ease-in-out duration-500 text-lighticon"
+                />
+              </>
             )}
             <span className="sr-only">Switch Theme</span>
           </Button>

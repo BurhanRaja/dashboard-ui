@@ -24,6 +24,7 @@ const SimpleTable = ({ caption, headData, bodyData, theme }) => {
       >
         <TableRow
           className={cn(
+            "text-xs md:text-sm",
             theme == "dark" ? "border-slate-500" : "border-slate-300"
           )}
         >
@@ -44,6 +45,7 @@ const SimpleTable = ({ caption, headData, bodyData, theme }) => {
           <TableRow
             key={el?.id}
             className={cn(
+              "text-xs md:text-sm",
               theme == "dark"
                 ? "border-b-slate-800 odd:bg-slate-900"
                 : "even:bg-slate-100"

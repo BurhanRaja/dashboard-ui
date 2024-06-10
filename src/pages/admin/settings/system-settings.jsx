@@ -24,7 +24,7 @@ const SystemSettings = () => {
           { name: "System Settings", link: "#" },
         ]}
       >
-        <div className="grid grid-cols-2 gap-4 mb-5">
+        <div className="grid grid-cols-1 xl:grid-cols-2 gap-4 mb-5">
           <AdminCard>
             <form>
               <img
@@ -110,13 +110,13 @@ const SystemSettings = () => {
         <AdminCard>
           <h3
             className={cn(
-              "text-2xl font-bold",
+              "text-2xl font-semibold",
               theme == "dark" ? "text-textlight" : "text-textdark"
             )}
           >
             IB Settings
           </h3>
-          <div className="grid grid-cols-2 gap-4 my-5">
+          <div className="grid grid-cols-1 xl:grid-cols-2 gap-4 my-5">
             <SettingsSwitchCard
               id={"ibusertowallet"}
               label="IB to User Wallet"
@@ -160,13 +160,13 @@ const SystemSettings = () => {
           <AdminCard>
             <h3
               className={cn(
-                "text-2xl font-bold",
+                "text-2xl font-semibold",
                 theme == "dark" ? "text-textlight" : "text-textdark"
               )}
             >
               CRM Settings
             </h3>
-            <div className="grid grid-cols-3 gap-4 mt-5">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-5">
               <div className="mb-3">
                 <CustomFormLabel
                   htmlfor={"crmphone"}
@@ -192,7 +192,7 @@ const SystemSettings = () => {
                 />
               </div>
             </div>
-            <div className="grid grid-cols-3 gap-4 mt-3">
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 mt-3">
               <div className="mb-3">
                 <CustomFormLabel
                   htmlfor={"desktopUrl"}
@@ -225,7 +225,7 @@ const SystemSettings = () => {
                 />
               </div>
             </div>
-            <div className="grid grid-cols-3 gap-4 mt-3">
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 mt-3">
               <div className="mb-3">
                 <CustomFormLabel
                   htmlfor={"logintext"}
@@ -287,13 +287,13 @@ const SystemSettings = () => {
             </div>
             <h4
               className={cn(
-                "text-xl font-bold mt-5",
+                "text-xl font-semibold mt-5",
                 theme == "dark" ? "text-textlight" : "text-textdark"
               )}
             >
               Google OAuth Details
             </h4>
-            <div className="grid grid-cols-2 gap-4 mt-3">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-3">
               <div className="mb-3">
                 <CustomFormLabel htmlfor={"googleclientid"} label="Client ID" />
                 <FormInput
@@ -317,13 +317,13 @@ const SystemSettings = () => {
 
             <h4
               className={cn(
-                "text-xl font-bold mt-5",
+                "text-xl font-sebold mt-5",
                 theme == "dark" ? "text-textlight" : "text-textdark"
               )}
             >
               Tidio Chatbot Details
             </h4>
-            <div className="grid grid-cols-2 gap-4 mt-3">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-3">
               <div className="mb-3">
                 <CustomFormLabel
                   htmlfor={"googleclientid"}

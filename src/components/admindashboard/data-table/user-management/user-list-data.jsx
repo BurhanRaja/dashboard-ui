@@ -190,7 +190,7 @@ export const userListColumns = [
                 </>
               ),
               type: "normal",
-              link: "",
+              link: `/admin/usermanagement/edituser/${row.getValue("id")}`,
               customClass: "",
             },
             {
@@ -201,7 +201,7 @@ export const userListColumns = [
                 </>
               ),
               type: "normal",
-              link: "",
+              link: `/admin/usermanagement/userdetails/${row.getValue("id")}`,
               customClass: "",
             },
             {

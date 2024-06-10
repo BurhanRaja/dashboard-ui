@@ -28,14 +28,14 @@ const renderForeignObjectNode = ({
             theme == "dark" ? "bg-slate-950 text-white" : "bg-slate-100"
           )}
         >
-          <h3 className="mb-2 font-bold text-lg text-center">
+          <h3 className="mb-2 font-semibold text-lg text-center">
             {nodeData.name}
           </h3>
           <ul style={{ listStyleType: "none", padding: 0 }}>
             {nodeData.attributes &&
               Object.keys(nodeData.attributes).map((labelKey, i) => (
                 <li key={`${labelKey}-${i}`} className="mb-2">
-                  <span className="font-bold">{labelKey}</span>:{" "}
+                  <span className="font-semibold">{labelKey}</span>:{" "}
                   <span className="font-light">
                     {nodeData.attributes[labelKey]}
                   </span>

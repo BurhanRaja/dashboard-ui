@@ -70,8 +70,8 @@ const ManagerDashboard = () => {
           { name: "Management Dashboard", link: "#" },
         ]}
       >
-        <form>
-          <div className="grid grid-cols-5 items-end gap-4 mt-6">
+        <form className="mb-5">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 items-end gap-4">
             <div>
               <Label className={cn(theme == "dark" ? "text-white" : "")}>
                 Country
@@ -148,7 +148,7 @@ const ManagerDashboard = () => {
           </div>
         </form>
 
-        <div className="grid gap-4 grid-cols-4 mt-8">
+        <div className="grid gap-4 grid-cols-1 md:grid-cols-2 xl:grid-cols-4  mb-5">
           <DashCard
             title={"Total Clients"}
             icon={
@@ -206,7 +206,7 @@ const ManagerDashboard = () => {
             small={true}
           />
         </div>
-        <div className="grid grid-cols-2 gap-4 mt-8">
+        <div className="grid grid-cols-1 xl:grid-cols-2 gap-4 mb-5">
           <div>
             <CountryWiseChart theme={theme} />
           </div>
@@ -447,7 +447,7 @@ const ManagerDashboard = () => {
             />
           </div>
         </div>
-        <div className="grid grid-cols-2 gap-4 mt-8">
+        <div className="grid grid-cols-1 xl:grid-cols-2 gap-4 mb-5">
           <div>
             <CardSimpleTable
               title={"Top 10 Depositor"}
@@ -921,7 +921,7 @@ const ManagerDashboard = () => {
             />
           </div>
         </div>
-        <div className="grid grid-cols-2 gap-4 mt-8">
+        <div className="grid grid-cols-1 xl:grid-cols-2 gap-4 mb-5">
           <div>
             <CardSimpleTable
               title={"Top 10 Winner"}

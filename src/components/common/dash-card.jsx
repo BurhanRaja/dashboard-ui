@@ -26,14 +26,14 @@ const DashCard = ({ title, link, icon, count, small }) => {
           <div>
             <CardHeader className="flex flex-row items-center justify-between pl-0 pb-1">
               <CardTitle
-                className="text-lg font-bold"
+                className="text-lg font-semibold"
                 style={{ fontSize: small && "15px" }}
               >
                 {title}
               </CardTitle>
             </CardHeader>
             <CardContent className="pl-0">
-              <div className="text-2xl font-bold pb-1">{count}</div>
+              <div className="text-2xl font-semibold pb-1">{count}</div>
               {link && (
                 <a href={link} className="text-sm mt-2 text-primary">
                   View More

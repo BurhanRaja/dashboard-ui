@@ -80,7 +80,7 @@ const MainDataTable = ({
     <div className="space-y-4">
       {/* ToolBar Start */}
       <div className="">
-        <div className="flex flex-1 items-center justify-between space-x-2 mb-3">
+        <div className="flex flex-1 md:items-center md:flex-row md:justify-between flex-col-reverse justify-start items-start space-x-2 mb-3">
           <div className="flex flex-1 items-center space-x-2">
             {searchKeys?.length > 0 && (
               <>
@@ -90,7 +90,7 @@ const MainDataTable = ({
                 >
                   <SelectTrigger
                     className={cn(
-                      "w-[110px] p-0.5 h-10 px-2",
+                      "max-w-[120px] p-0.5 h-10 px-2",
                       theme == "dark"
                         ? "text-white bg-slate-900 border-slate-800"
                         : ""
@@ -119,7 +119,7 @@ const MainDataTable = ({
                     table.getColumn(key).setFilterValue(event.target.value)
                   }
                   className={cn(
-                    "h-10 w-[200px] lg:w-[290px]",
+                    "h-10 w-[200px] md:w-[250px] lg:w-[290px]",
                     theme == "dark"
                       ? "text-white bg-slate-900 border-slate-800"
                       : ""
@@ -140,7 +140,7 @@ const MainDataTable = ({
           </div>
           <DataTableViewFilter table={table} theme={theme} />
         </div>
-        <div className="flex flex-1 space-x-2">
+        <div className="md:flex md:flex-1 md:space-x-2 grid grid-cols-2 md:grid-cols-3 gap-4 ">
           {facetFilter?.map((el) => {
             return (
               table.getColumn(el?.key) && (

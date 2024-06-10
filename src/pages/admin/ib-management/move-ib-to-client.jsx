@@ -18,8 +18,8 @@ const MoveIBToClient = () => {
       >
         <AdminCard>
           <form>
-            <div className="grid grid-cols-2 gap-4">
-              <div className="grid grid-cols-1 gap-4">
+            <div className="grid grid-cols-1 xl:grid-cols-2 gap-4">
+              <div className="xl:grid xl:grid-cols-1 xl:gap-4">
                 <div className="mb-3">
                   <CustomFormLabel
                     htmlfor={"user"}
@@ -30,6 +30,7 @@ const MoveIBToClient = () => {
                     data={[]}
                     emptyText={"No User Found"}
                     margin
+                    width={"w-[350px] md:w-[530px]"}
                   />
                 </div>
                 <div className="mb-3">
@@ -40,8 +41,9 @@ const MoveIBToClient = () => {
                   />
                   <FormSelectSearch
                     data={[]}
-                    emptyText={"No Marketing Found"}
+                    emptyText={"No IB Found"}
                     margin
+                    width={"w-[350px] md:w-[530px]"}
                   />
                 </div>
               </div>

@@ -32,13 +32,13 @@ export function Navbar({ breadcrumb, title }) {
             <SheetMenu />
             <div>
               <Breadcrumb
-                className={cn("mb-1", theme == "dark" ? "text-white" : "")}
+                className={cn("mb-1 md:block hidden", theme == "dark" ? "text-white" : "")}
               >
-                <BreadcrumbList>
+                <BreadcrumbList className="">
                   {breadcrumb?.map((el, index) => {
                     return (
                       <>
-                        <BreadcrumbItem key={index + 1} className={"text-xs"}>
+                        <BreadcrumbItem key={index + 1} className={"md:text-xs text-[0.5rem]"}>
                           <BreadcrumbLink asChild>
                             <Link to={el?.link}>{el?.name}</Link>
                           </BreadcrumbLink>
@@ -53,7 +53,7 @@ export function Navbar({ breadcrumb, title }) {
               </Breadcrumb>
               <h1
                 className={cn(
-                  "font-semibold lg:text-3xl md:text-2xl text-xl",
+                  "font-semibold text-base lg:text-2xl md:text-xl",
                   theme == "dark" ? "text-white" : ""
                 )}
               >
@@ -70,7 +70,7 @@ export function Navbar({ breadcrumb, title }) {
                   : "bg-white shadow-[14px_17px_40px_4px_rgba(112,144,176,0.18)]"
               )}
             >
-              <div className="relative items-center xl:flex lg:flex md:flex hidden">
+              <div className="relative items-center md:flex hidden">
                 <span className="absolute">
                   <Search
                     size={15}
@@ -91,11 +91,11 @@ export function Navbar({ breadcrumb, title }) {
                   )}
                 />
               </div>
-              <div className="xl:hidden lg:hidden md:hidden block">
+              <div className="md:hidden block">
                 <Search
-                  size={20}
+                  size={15}
                   className={cn(
-                    "w-4 h-4 mx-1",
+                    "",
                     theme == "dark" ? "text-white" : "text-darkicon"
                   )}
                 />

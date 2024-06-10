@@ -65,7 +65,9 @@ export function getMenuList(pathname) {
               label: "User List",
               active:
                 pathname == "/admin/usermanagement/userlist" ||
-                pathname.includes("/admin/usermanagement/usersettings"),
+                pathname.includes("/admin/usermanagement/usersettings") ||
+                pathname.includes("/admin/usermanagement/edituser") ||
+                pathname.includes("/admin/usermanagement/userdetails"),
             },
             {
               href: "/admin/usermanagement/createmt5account",

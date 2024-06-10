@@ -58,7 +58,7 @@ const DefaultSettings = () => {
       >
         <AdminCard>
           <form>
-            <div className="grid grid-cols-2 gap-4 mb-5">
+            <div className="grid grid-cols-1 xl:grid-cols-2 gap-4 mb-5">
               {/* Deposit */}
               <SettingsSwitchCard
                 id={"disabledepsoit"}
@@ -83,7 +83,7 @@ const DefaultSettings = () => {
                 description={"This will disable New User to do Open Account"}
               />
             </div>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 xl:grid-cols-2 gap-4">
               <div className="">
                 <CustomFormLabel
                   htmlfor={"userdeposit"}

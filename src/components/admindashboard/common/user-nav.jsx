@@ -27,10 +27,12 @@ export function UserNav({ theme }) {
           <TooltipTrigger asChild>
             <DropdownMenuTrigger asChild>
               <Button
-                variant="outline"
                 className="relative h-8 w-8 rounded-full"
+                style={{
+                  marginLeft: "0"
+                }}
               >
-                <Avatar className="h-8 w-8">
+                <Avatar className="h-5 w-5 md:h-8 md:w-8">
                   <AvatarImage src="#" alt="Avatar" />
                   <AvatarFallback
                     className={cn(

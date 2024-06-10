@@ -63,15 +63,15 @@ const Mt5UserList = () => {
   return (
     <>
       <ContentLayout
-        title={"User List"}
+        title={"MT5 User List"}
         breadcrumb={[
           { name: "Dashboard", link: "/admin/dashboard" },
           { name: "User Management", link: "#" },
-          { name: "User List", link: "#" },
+          { name: "MT5 User List", link: "#" },
         ]}
       >
         <AdminCard table>
-          <div className="hidden h-full flex-1 flex-col space-y-8 md:flex">
+          <div className="h-full flex-1 flex-col space-y-8 md:flex">
             <div className="flex items-center justify-between space-y-2">
               <div className="flex items-center space-x-2"></div>
             </div>

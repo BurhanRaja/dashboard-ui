@@ -8,7 +8,7 @@ const CardSimpleTable = ({ title, headerData, bodyData, theme }) => {
     <>
       <Card
         className={cn(
-          "w-full col-span-2 rounded-3xl border-none shadow p-4 md:p-6",
+          "w-full col-span-2 rounded-3xl border-none shadow p-4",
           theme == "dark" ? "bg-slate-950" : "bg-white"
         )}
         // style={{
@@ -18,12 +18,12 @@ const CardSimpleTable = ({ title, headerData, bodyData, theme }) => {
         //       : "7px 8px 13px 6px rgba(112,144,176,0.18)",
         // }}
       >
-        <CardHeader>
+        <CardHeader className="pl-0">
           <div className="flex justify-between mb-1">
             <div>
               <p
                 className={cn(
-                  "text-2xl leading-none font-bold",
+                  "text-lg md:text-2xl  leading-none font-semibold",
                   theme == "dark" ? "text-white" : "text-gray-900 "
                 )}
               >

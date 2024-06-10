@@ -18,7 +18,7 @@ const AddMarketing = () => {
       >
         <AdminCard>
           <form>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="mb-3">
                 <CustomFormLabel htmlfor={"name"} label="Name" compulsory />
                 <FormInput id="name" type={"text"} placeholder={"Enter Name"} />
