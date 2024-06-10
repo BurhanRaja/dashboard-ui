@@ -1,8 +1,6 @@
 import { DataTableColumnHeader } from "components/common/data-table/data-table-column-header";
-import { Button } from "components/ui/button";
-import { Check, X } from "lucide-react";
 
-export const pendingdepositlistColumns = [
+export const withdrawReportColumns = [
   {
     accessorKey: "id",
     header: ({ column }) => (
@@ -24,21 +22,30 @@ export const pendingdepositlistColumns = [
     },
   },
   {
-    accessorKey: "depositTo",
-    header: ({ column }) => (
-      <DataTableColumnHeader column={column} title="Deposit To" />
-    ),
-    cell: ({ row }) => {
-      return <div className="">{row.getValue("depositTo")}</div>;
-    },
-  },
-  {
     accessorKey: "amount",
     header: ({ column }) => (
       <DataTableColumnHeader column={column} title="Amount" />
     ),
     cell: ({ row }) => {
       return <div className="">{row.getValue("amount")}</div>;
+    },
+  },
+  {
+    accessorKey: "withdrawFrom",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Withdraw From" />
+    ),
+    cell: ({ row }) => {
+      return <div className="">{row.getValue("withdrawFrom")}</div>;
+    },
+  },
+  {
+    accessorKey: "withdrawTo",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Withdraw To" />
+    ),
+    cell: ({ row }) => {
+      return <div className="">{row.getValue("withdrawTo")}</div>;
     },
   },
   {
@@ -53,24 +60,7 @@ export const pendingdepositlistColumns = [
       return value.includes(row.getValue(id));
     },
   },
-  {
-    accessorKey: "paymentid",
-    header: ({ column }) => (
-      <DataTableColumnHeader column={column} title="Transaction ID" />
-    ),
-    cell: ({ row }) => {
-      return <div className="">{row.getValue("paymentid")}</div>;
-    },
-  },
-  {
-    accessorKey: "depositproof",
-    header: ({ column }) => (
-      <DataTableColumnHeader column={column} title="Deposit Proof" />
-    ),
-    cell: ({ row }) => {
-      return <div className="">{row.getValue("depositproof")}</div>;
-    },
-  },
+
   {
     accessorKey: "note",
     header: ({ column }) => (
@@ -78,6 +68,15 @@ export const pendingdepositlistColumns = [
     ),
     cell: ({ row }) => {
       return <div className="">{row.getValue("note")}</div>;
+    },
+  },
+  {
+    accessorKey: "admincomment",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Admin Comment" />
+    ),
+    cell: ({ row }) => {
+      return <div className="">{row.getValue("admincomment")}</div>;
     },
   },
   {
@@ -118,46 +117,32 @@ export const pendingdepositlistColumns = [
     },
   },
   {
-    accessorKey: "action",
+    accessorKey: "adminname",
     header: ({ column }) => (
-      <DataTableColumnHeader column={column} title="Action" />
+      <DataTableColumnHeader column={column} title="Admin Name" />
     ),
     cell: ({ row }) => {
-      let status = row.getValue("status");
-      if (status == "pending") {
-        return (
-          <div className="grid grid-cols-2 gap-2">
-            <div>
-              <Button className="bg-secondary p-2 h-7">
-                <Check size={18} className={""} />
-              </Button>
-            </div>
-            <div>
-              <Button className="bg-primary p-2 h-7">
-                <X size={18} className={""} />
-              </Button>
-            </div>
-          </div>
-        );
-      } else {
-        return <></>;
-      }
+      return <div className="">{row.getValue("adminname")}</div>;
     },
   },
 ];
 
-export const pendingDepositSearchKeys = [
+export const withdrawReportSearchKeys = [
   {
     value: "nameEmail",
     label: "Name/Email",
   },
   {
-    value: "depositTo",
-    label: "Deposit To",
+    value: "withdrawTo",
+    label: "Withdraw To",
   },
   {
     value: "marketingname",
     label: "Marketing name",
+  },
+  {
+    value: "adminname",
+    label: "Admin name",
   },
 ];
 
@@ -176,7 +161,27 @@ export const paymentmethod = [
   },
 ];
 
-export const pendingDepositFacetFilter = [
+export const status = [
+  {
+    value: "pending",
+    label: "Pending",
+  },
+  {
+    value: "approved",
+    label: "Approved",
+  },
+  {
+    value: "rejected",
+    label: "Rejected",
+  },
+];
+
+export const withdrawReportFacetFilter = [
+  {
+    key: "status",
+    title: "Status",
+    options: status,
+  },
   {
     key: "paymentmethod",
     title: "Payment Method",

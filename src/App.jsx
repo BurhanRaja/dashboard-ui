@@ -49,6 +49,10 @@ import SystemSettings from "pages/admin/settings/system-settings";
 import SendMail from "pages/admin/send-mail";
 import EditUser from "pages/admin/user-management/user/edit-user";
 import UserDetails from "pages/admin/user-management/user/user-details";
+import PendingDepositList from "pages/admin/transaction/pending-deposit-list";
+import PendingWithdrawList from "pages/admin/transaction/pending-withdraw-list";
+import DepositReportList from "pages/admin/report/deposit-report-list";
+import WithdrawReportList from "pages/admin/report/withdraw-report-list";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -145,9 +149,21 @@ function App() {
                 <Route path="clientwithdraw" element={<ClientWithdraw />} />
                 <Route path="ibwithdraw" element={<IBWithdraw />} />
                 <Route path="internaltransfer" element={<InternalTransfer />} />
+                <Route
+                  path="pendingdepositlist"
+                  element={<PendingDepositList />}
+                />
+                <Route
+                  path="pendingwithdrawlist"
+                  element={<PendingWithdrawList />}
+                />
               </Route>
               <Route path="/admin/marketing">
                 <Route path="addmarketing" element={<AddMarketing />} />
+              </Route>
+              <Route path="/admin/report">
+                <Route path="depositreport" element={<DepositReportList />} />
+                <Route path="withdrawreport" element={<WithdrawReportList />} />
               </Route>
               <Route path="/admin/settings">
                 <Route path="promotionlist" element={<PromotionList />} />

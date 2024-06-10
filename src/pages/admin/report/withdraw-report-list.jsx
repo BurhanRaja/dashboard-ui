@@ -1,25 +1,28 @@
 import AdminCard from "components/admindashboard/common/admin-form";
 import { ContentLayout } from "components/admindashboard/common/content-layout";
 import {
-  pendingDepositFacetFilter,
-  pendingdepositlistColumns,
-  pendingDepositSearchKeys,
-} from "components/admindashboard/data-table/transaction/pending-deposit-list-data.";
+  withdrawReportColumns,
+  withdrawReportFacetFilter,
+  withdrawReportSearchKeys,
+} from "components/admindashboard/data-table/report/withdraw-report-list-data";
 import MainDataTable from "components/common/data-table/main-table";
 import React from "react";
 
-const PendingDepositList = () => {
-  const pendingDepositList = [
+const WithdrawReportList = () => {
+  const withdrawReportList = [
     {
       name: "Burhanuddin Raja",
       email: "burhanuddin@techysquad.com",
       amount: 100.98,
-      status: 0,
+      status: 1,
       paymentmethod: "bank",
-      paymentid: "2iej28jsi2js",
+      withdrawFrom: 9827492,
       note: "Test Note",
       createdAt: "2024-05-06",
-      depositTo: 9827492,
+      withdrawTo: "2iej28jsi2js",
+      marketingname: "",
+      adminname: "",
+      admincomment: "",
     },
     {
       name: "Bijal Makvana",
@@ -27,21 +30,24 @@ const PendingDepositList = () => {
       amount: 390.48,
       status: 0,
       paymentmethod: "cash",
-      paymentid: "",
+      withdrawFrom: 8927482,
       note: "Test Note",
       createdAt: "2024-05-06",
-      depositTo: "wallet",
+      withdrawTo: "wallet",
+      marketingname: "",
+      adminname: "",
+      admincomment: "",
     },
   ];
 
   return (
     <>
       <ContentLayout
-        title={"Pending Deposit List"}
+        title={"Withdraw Report"}
         breadcrumb={[
           { name: "Dashboard", link: "/admin/dashboard" },
           { name: "Transaction", link: "#" },
-          { name: "Pending Deposit List", link: "#" },
+          { name: "Withdraw Report", link: "#" },
         ]}
       >
         <AdminCard table>
@@ -50,8 +56,8 @@ const PendingDepositList = () => {
               <div className="flex items-center space-x-2"></div>
             </div>
             <MainDataTable
-              columns={pendingdepositlistColumns}
-              data={pendingDepositList?.map((el, index) => {
+              columns={withdrawReportColumns}
+              data={withdrawReportList?.map((el, index) => {
                 return {
                   ...el,
                   id: index + 1,
@@ -64,9 +70,9 @@ const PendingDepositList = () => {
                   nameEmail: el?.name + " / " + el?.email,
                 };
               })}
-              defaultSearchKey={pendingDepositSearchKeys[0]?.value}
-              searchKeys={pendingDepositSearchKeys}
-              facetFilter={pendingDepositFacetFilter}
+              defaultSearchKey={withdrawReportSearchKeys[0]?.value}
+              searchKeys={withdrawReportSearchKeys}
+              facetFilter={withdrawReportFacetFilter}
             />
           </div>
         </AdminCard>
@@ -75,4 +81,4 @@ const PendingDepositList = () => {
   );
 };
 
-export default PendingDepositList;
+export default WithdrawReportList;

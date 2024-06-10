@@ -1,15 +1,15 @@
 import AdminCard from "components/admindashboard/common/admin-form";
 import { ContentLayout } from "components/admindashboard/common/content-layout";
 import {
-  pendingDepositFacetFilter,
-  pendingdepositlistColumns,
-  pendingDepositSearchKeys,
-} from "components/admindashboard/data-table/transaction/pending-deposit-list-data.";
+  depositReportColumns,
+  depositReportFacetFilter,
+  depositReportSearchKeys,
+} from "components/admindashboard/data-table/report/deposit-report-list-data";
 import MainDataTable from "components/common/data-table/main-table";
 import React from "react";
 
-const PendingDepositList = () => {
-  const pendingDepositList = [
+const DepositReportList = () => {
+  const depositReportList = [
     {
       name: "Burhanuddin Raja",
       email: "burhanuddin@techysquad.com",
@@ -20,6 +20,9 @@ const PendingDepositList = () => {
       note: "Test Note",
       createdAt: "2024-05-06",
       depositTo: 9827492,
+      marketingname: "",
+      adminname: "",
+      depositproof: "",
     },
     {
       name: "Bijal Makvana",
@@ -31,17 +34,20 @@ const PendingDepositList = () => {
       note: "Test Note",
       createdAt: "2024-05-06",
       depositTo: "wallet",
+      marketingname: "",
+      adminname: "",
+      depositproof: "",
     },
   ];
 
   return (
     <>
       <ContentLayout
-        title={"Pending Deposit List"}
+        title={"Deposit Report"}
         breadcrumb={[
           { name: "Dashboard", link: "/admin/dashboard" },
-          { name: "Transaction", link: "#" },
-          { name: "Pending Deposit List", link: "#" },
+          { name: "Report", link: "#" },
+          { name: "Deposit Report", link: "#" },
         ]}
       >
         <AdminCard table>
@@ -50,8 +56,8 @@ const PendingDepositList = () => {
               <div className="flex items-center space-x-2"></div>
             </div>
             <MainDataTable
-              columns={pendingdepositlistColumns}
-              data={pendingDepositList?.map((el, index) => {
+              columns={depositReportColumns}
+              data={depositReportList?.map((el, index) => {
                 return {
                   ...el,
                   id: index + 1,
@@ -64,9 +70,9 @@ const PendingDepositList = () => {
                   nameEmail: el?.name + " / " + el?.email,
                 };
               })}
-              defaultSearchKey={pendingDepositSearchKeys[0]?.value}
-              searchKeys={pendingDepositSearchKeys}
-              facetFilter={pendingDepositFacetFilter}
+              defaultSearchKey={depositReportSearchKeys[0]?.value}
+              searchKeys={depositReportSearchKeys}
+              facetFilter={depositReportFacetFilter}
             />
           </div>
         </AdminCard>
@@ -75,4 +81,4 @@ const PendingDepositList = () => {
   );
 };
 
-export default PendingDepositList;
+export default DepositReportList;

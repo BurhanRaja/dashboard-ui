@@ -2,7 +2,7 @@ import { DataTableColumnHeader } from "components/common/data-table/data-table-c
 import { Button } from "components/ui/button";
 import { Check, X } from "lucide-react";
 
-export const pendingdepositlistColumns = [
+export const pendingWithdrawlistColumns = [
   {
     accessorKey: "id",
     header: ({ column }) => (
@@ -24,21 +24,30 @@ export const pendingdepositlistColumns = [
     },
   },
   {
-    accessorKey: "depositTo",
-    header: ({ column }) => (
-      <DataTableColumnHeader column={column} title="Deposit To" />
-    ),
-    cell: ({ row }) => {
-      return <div className="">{row.getValue("depositTo")}</div>;
-    },
-  },
-  {
     accessorKey: "amount",
     header: ({ column }) => (
       <DataTableColumnHeader column={column} title="Amount" />
     ),
     cell: ({ row }) => {
       return <div className="">{row.getValue("amount")}</div>;
+    },
+  },
+  {
+    accessorKey: "withdrawFrom",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Withdraw From" />
+    ),
+    cell: ({ row }) => {
+      return <div className="">{row.getValue("withdrawFrom")}</div>;
+    },
+  },
+  {
+    accessorKey: "withdrawTo",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Withdraw To" />
+    ),
+    cell: ({ row }) => {
+      return <div className="">{row.getValue("withdrawTo")}</div>;
     },
   },
   {
@@ -53,24 +62,7 @@ export const pendingdepositlistColumns = [
       return value.includes(row.getValue(id));
     },
   },
-  {
-    accessorKey: "paymentid",
-    header: ({ column }) => (
-      <DataTableColumnHeader column={column} title="Transaction ID" />
-    ),
-    cell: ({ row }) => {
-      return <div className="">{row.getValue("paymentid")}</div>;
-    },
-  },
-  {
-    accessorKey: "depositproof",
-    header: ({ column }) => (
-      <DataTableColumnHeader column={column} title="Deposit Proof" />
-    ),
-    cell: ({ row }) => {
-      return <div className="">{row.getValue("depositproof")}</div>;
-    },
-  },
+
   {
     accessorKey: "note",
     header: ({ column }) => (
@@ -146,14 +138,14 @@ export const pendingdepositlistColumns = [
   },
 ];
 
-export const pendingDepositSearchKeys = [
+export const pendingWithdrawSearchKeys = [
   {
     value: "nameEmail",
     label: "Name/Email",
   },
   {
-    value: "depositTo",
-    label: "Deposit To",
+    value: "withdrawTo",
+    label: "Withdraw To",
   },
   {
     value: "marketingname",
@@ -176,7 +168,7 @@ export const paymentmethod = [
   },
 ];
 
-export const pendingDepositFacetFilter = [
+export const pendingWithdrawFacetFilter = [
   {
     key: "paymentmethod",
     title: "Payment Method",

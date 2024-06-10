@@ -1,8 +1,6 @@
 import { DataTableColumnHeader } from "components/common/data-table/data-table-column-header";
-import { Button } from "components/ui/button";
-import { Check, X } from "lucide-react";
 
-export const pendingdepositlistColumns = [
+export const depositReportColumns = [
   {
     accessorKey: "id",
     header: ({ column }) => (
@@ -68,7 +66,13 @@ export const pendingdepositlistColumns = [
       <DataTableColumnHeader column={column} title="Deposit Proof" />
     ),
     cell: ({ row }) => {
-      return <div className="">{row.getValue("depositproof")}</div>;
+      return (
+        <div className="">
+          <div className="p-2 bg-white">
+            <img src="/logotechysquad-dark.png" width={80} />
+          </div>
+        </div>
+      );
     },
   },
   {
@@ -78,6 +82,15 @@ export const pendingdepositlistColumns = [
     ),
     cell: ({ row }) => {
       return <div className="">{row.getValue("note")}</div>;
+    },
+  },
+  {
+    accessorKey: "admincomment",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Admin Comment" />
+    ),
+    cell: ({ row }) => {
+      return <div className="">{row.getValue("admincomment")}</div>;
     },
   },
   {
@@ -118,35 +131,17 @@ export const pendingdepositlistColumns = [
     },
   },
   {
-    accessorKey: "action",
+    accessorKey: "adminame",
     header: ({ column }) => (
-      <DataTableColumnHeader column={column} title="Action" />
+      <DataTableColumnHeader column={column} title="Admin Name" />
     ),
     cell: ({ row }) => {
-      let status = row.getValue("status");
-      if (status == "pending") {
-        return (
-          <div className="grid grid-cols-2 gap-2">
-            <div>
-              <Button className="bg-secondary p-2 h-7">
-                <Check size={18} className={""} />
-              </Button>
-            </div>
-            <div>
-              <Button className="bg-primary p-2 h-7">
-                <X size={18} className={""} />
-              </Button>
-            </div>
-          </div>
-        );
-      } else {
-        return <></>;
-      }
+      return <div className="">{row.getValue("adminname")}</div>;
     },
   },
 ];
 
-export const pendingDepositSearchKeys = [
+export const depositReportSearchKeys = [
   {
     value: "nameEmail",
     label: "Name/Email",
@@ -158,6 +153,10 @@ export const pendingDepositSearchKeys = [
   {
     value: "marketingname",
     label: "Marketing name",
+  },
+  {
+    value: "adminname",
+    label: "Admin name",
   },
 ];
 
@@ -176,7 +175,27 @@ export const paymentmethod = [
   },
 ];
 
-export const pendingDepositFacetFilter = [
+export const status = [
+  {
+    value: "pending",
+    label: "Pending",
+  },
+  {
+    value: "approved",
+    label: "Approved",
+  },
+  {
+    value: "rejected",
+    label: "Rejected",
+  },
+];
+
+export const depositReportFacetFilter = [
+  {
+    key: "status",
+    title: "Status",
+    options: status,
+  },
   {
     key: "paymentmethod",
     title: "Payment Method",

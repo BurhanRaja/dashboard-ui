@@ -285,14 +285,14 @@ export function getMenuList(pathname) {
               active: pathname === "/admin/transaction/internaltransfer",
             },
             {
-              href: "/posts/new",
+              href: "/admin/transaction/pendingdepositlist",
               label: "Pending Deposit",
-              active: pathname === "/posts/new",
+              active: pathname === "/admin/transaction/pendingdepositlist",
             },
             {
-              href: "/posts/new",
+              href: "/admin/transaction/pendingwithdrawlist",
               label: "Pending Withdraw",
-              active: pathname === "/posts/new",
+              active: pathname === "/admin/transaction/pendingwithdrawlist",
             },
             {
               href: "/posts/new",
@@ -406,18 +406,18 @@ export function getMenuList(pathname) {
         {
           href: "",
           label: "All Reports",
-          active: pathname.includes("/admin/dashboard/user"),
+          active: pathname.includes("/admin/report"),
           icon: LineChart,
           submenus: [
             {
-              href: "/posts",
+              href: "/admin/report/depositreport",
               label: "Deposit Report",
-              active: pathname === "/posts",
+              active: pathname === "/admin/report/depositreport",
             },
             {
-              href: "/posts/new",
+              href: "/admin/report/withdrawreport",
               label: "Withdraw Report",
-              active: pathname === "/posts/new",
+              active: pathname === "/admin/report/withdrawreport",
             },
             {
               href: "/posts/new",
