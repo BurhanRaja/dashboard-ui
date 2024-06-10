@@ -13,7 +13,7 @@ const CreateSubAdmin = () => {
         title={"Create Sub Admin"}
         breadcrumb={[
           { name: "Dashboard", link: "/admin/dashboard" },
-          { name: "User Managment", link: "#" },
+          { name: "User Management", link: "#" },
           { name: "Create Sub Admin", link: "#" },
         ]}
       >
@@ -21,11 +21,11 @@ const CreateSubAdmin = () => {
           <form>
             <div className="grid grid-cols-2 gap-4">
               <div className="mb-3">
-                <FormLabel htmlfor={"name"} label="Name" />
+                <FormLabel htmlfor={"name"} label="Name" compulsory />
                 <FormInput id="name" type={"text"} placeholder={"Enter Name"} />
               </div>
               <div className="mb-3">
-                <FormLabel htmlfor={"email"} label="Email" />
+                <FormLabel htmlfor={"email"} label="Email" compulsory />
                 <FormInput
                   id="email"
                   type={"email"}
@@ -33,7 +33,7 @@ const CreateSubAdmin = () => {
                 />
               </div>
               <div className="mb-3">
-                <FormLabel htmlfor={"password"} label="Password" />
+                <FormLabel htmlfor={"password"} label="Password" compulsory />
                 <FormInput
                   id="password"
                   type={"password"}
@@ -41,7 +41,11 @@ const CreateSubAdmin = () => {
                 />
               </div>
               <div className="mb-3">
-                <FormLabel htmlfor={"admintype"} label="Admin Type" />
+                <FormLabel
+                  htmlfor={"admintype"}
+                  label="Admin Type"
+                  compulsory
+                />
                 <FormSelectSearch
                   data={[]}
                   emptyText={"No Type Found"}
@@ -50,7 +54,7 @@ const CreateSubAdmin = () => {
                 />
               </div>
               <div className="mb-3">
-                <FormLabel htmlfor={"group"} label="Select Group" />
+                <FormLabel htmlfor={"group"} label="Select Group" compulsory />
                 <FormSelectSearch
                   data={[]}
                   emptyText={"No Group Found"}

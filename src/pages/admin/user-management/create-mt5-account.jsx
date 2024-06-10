@@ -1,7 +1,7 @@
 import AdminCard from "components/admindashboard/common/admin-form";
 import { ContentLayout } from "components/admindashboard/common/content-layout";
 import FormInput from "components/common/form-input";
-import FormLabel from "components/common/form-label";
+import CustomFormLabel from "components/common/form-label";
 import FormSelectSearch from "components/common/form-select-search";
 import { Button } from "components/ui/button";
 import { Input } from "components/ui/input";
@@ -14,7 +14,7 @@ const CreateMt5Account = () => {
         title={"Create MT5 Account"}
         breadcrumb={[
           { name: "Dashboard", link: "/admin/dashboard" },
-          { name: "User Managment", link: "#" },
+          { name: "User Management", link: "#" },
           { name: "Create MT5 Account", link: "#" },
         ]}
       >
@@ -23,7 +23,7 @@ const CreateMt5Account = () => {
             <div className="grid grid-cols-2 gap-4">
               <div className="grid grid-cols-1 gap-4">
                 <div className="mb-3">
-                  <FormLabel htmlfor={"users"} label="Select User" />
+                  <CustomFormLabel htmlfor={"users"} label="Select User" compulsory />
                   <FormSelectSearch
                     data={[]}
                     emptyText={"No User Found"}
@@ -32,7 +32,11 @@ const CreateMt5Account = () => {
                   />
                 </div>
                 <div className="mb-3">
-                  <FormLabel htmlfor={"groups"} label="Select Group" />
+                  <CustomFormLabel
+                    htmlfor={"groups"}
+                    label="Select Group"
+                    compulsory
+                  />
                   <FormSelectSearch
                     data={[]}
                     emptyText={"No Group Found"}
@@ -41,7 +45,11 @@ const CreateMt5Account = () => {
                   />
                 </div>
                 <div className="mb-3">
-                  <FormLabel htmlfor={"leverages"} label="Select Leverage" />
+                  <CustomFormLabel
+                    htmlfor={"leverages"}
+                    label="Select Leverage"
+                    compulsory
+                  />
                   <FormSelectSearch
                     data={[]}
                     emptyText={"No Leverage Found"}

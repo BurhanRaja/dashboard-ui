@@ -92,6 +92,8 @@ const DataTableViewFilter = ({ table, theme }) => {
                       ? "Total Lots"
                       : column.id == "available_commission"
                       ? "Available Commission"
+                      : column.id == "mtgroup"
+                      ? "MT Group"
                       : column.id == "otp_enabled"
                       ? "Google 2FA"
                       : column.id}

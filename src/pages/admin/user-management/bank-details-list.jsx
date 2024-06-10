@@ -44,7 +44,7 @@ const BankDetailsList = () => {
         title={"Bank Details List"}
         breadcrumb={[
           { name: "Dashboard", link: "/admin/dashboard" },
-          { name: "User Managment", link: "#" },
+          { name: "User Management", link: "#" },
           { name: "Bank Details List", link: "#" },
         ]}
       >

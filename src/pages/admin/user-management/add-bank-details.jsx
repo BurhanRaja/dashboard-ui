@@ -2,7 +2,7 @@ import AdminCard from "components/admindashboard/common/admin-form";
 import { ContentLayout } from "components/admindashboard/common/content-layout";
 import FormFileInput from "components/common/form-file-input";
 import FormInput from "components/common/form-input";
-import FormLabel from "components/common/form-label";
+import CustomFormLabel from "components/common/form-label";
 import FormSelectSearch from "components/common/form-select-search";
 import { Button } from "components/ui/button";
 import React from "react";
@@ -13,7 +13,7 @@ const AddBankDetails = () => {
       title={"Add Bank Details"}
       breadcrumb={[
         { name: "Dashboard", link: "/admin/dashboard" },
-        { name: "User Managment", link: "#" },
+        { name: "User Management", link: "#" },
         { name: "Add Bank Details", link: "#" },
       ]}
     >
@@ -21,11 +21,15 @@ const AddBankDetails = () => {
         <form>
           <div className="grid grid-cols-3 gap-4">
             <div className="mb-3">
-              <FormLabel htmlfor={"users"} label="Select User" />
+              <CustomFormLabel htmlfor={"users"} label="Select User" />
               <FormSelectSearch data={[]} emptyText={"No User Found"} margin />
             </div>
             <div className="mb-3">
-              <FormLabel htmlfor={"accountname"} label="Account Name" />
+              <CustomFormLabel
+                htmlfor={"accountname"}
+                label="Account Name"
+                compulsory
+              />
               <FormInput
                 id="accountname"
                 type={"text"}
@@ -33,7 +37,7 @@ const AddBankDetails = () => {
               />
             </div>
             <div className="mb-3">
-              <FormLabel htmlfor={"accountno"} label="Account No." />
+              <CustomFormLabel htmlfor={"accountno"} label="Account No." compulsory />
               <FormInput
                 id="accountno"
                 type={"text"}
@@ -41,7 +45,7 @@ const AddBankDetails = () => {
               />
             </div>
             <div className="mb-3">
-              <FormLabel htmlfor={"ifsc"} label="IFSC/Swift Code" />
+              <CustomFormLabel htmlfor={"ifsc"} label="IFSC/Swift Code" compulsory />
               <FormInput
                 id="ifsc"
                 type={"text"}
@@ -49,11 +53,11 @@ const AddBankDetails = () => {
               />
             </div>
             <div className="mb-3">
-              <FormLabel htmlfor={"iban"} label="IBAN" />
+              <CustomFormLabel htmlfor={"iban"} label="IBAN" />
               <FormInput id="iban" type={"text"} placeholder={"IBan"} />
             </div>
             <div className="mb-3">
-              <FormLabel htmlfor={"bankname"} label="Bank Name" />
+              <CustomFormLabel htmlfor={"bankname"} label="Bank Name" compulsory />
               <FormInput
                 id="bankname"
                 type={"text"}
@@ -61,7 +65,7 @@ const AddBankDetails = () => {
               />
             </div>
             <div className="mb-3">
-              <FormLabel htmlfor={"bankaddress"} label="Bank Address" />
+              <CustomFormLabel htmlfor={"bankaddress"} label="Bank Address" />
               <FormInput
                 id="bankaddress"
                 type={"text"}
@@ -69,7 +73,7 @@ const AddBankDetails = () => {
               />
             </div>
             <div className="mb-3">
-              <FormLabel htmlfor={"country"} label="Country" />
+              <CustomFormLabel htmlfor={"country"} label="Country" compulsory />
               <FormSelectSearch
                 data={[]}
                 emptyText={"No Country Found"}
@@ -77,7 +81,7 @@ const AddBankDetails = () => {
               />
             </div>
             <div className="mb-3">
-              <FormLabel htmlfor={"bookbank"} label="Book Bank" />
+              <CustomFormLabel htmlfor={"bookbank"} label="Book Bank" compulsory />
               <FormFileInput id={"bookbank"} />
             </div>
           </div>

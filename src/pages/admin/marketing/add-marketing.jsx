@@ -1,7 +1,7 @@
 import AdminCard from "components/admindashboard/common/admin-form";
 import { ContentLayout } from "components/admindashboard/common/content-layout";
 import FormInput from "components/common/form-input";
-import FormLabel from "components/common/form-label";
+import CustomFormLabel from "components/common/form-label";
 import { Button } from "components/ui/button";
 import React from "react";
 
@@ -12,7 +12,7 @@ const AddMarketing = () => {
         title={"Add User"}
         breadcrumb={[
           { name: "Dashboard", link: "#" },
-          { name: "User Managment", link: "#" },
+          { name: "User Management", link: "#" },
           { name: "Add User", link: "#" },
         ]}
       >
@@ -20,11 +20,11 @@ const AddMarketing = () => {
           <form>
             <div className="grid grid-cols-2 gap-4">
               <div className="mb-3">
-                <FormLabel htmlfor={"name"} label="Name" />
+                <CustomFormLabel htmlfor={"name"} label="Name" compulsory />
                 <FormInput id="name" type={"text"} placeholder={"Enter Name"} />
               </div>
               <div className="mb-3">
-                <FormLabel htmlfor={"email"} label="Email" />
+                <CustomFormLabel htmlfor={"email"} label="Email" compulsory />
                 <FormInput
                   id="email"
                   type={"email"}
@@ -32,7 +32,7 @@ const AddMarketing = () => {
                 />
               </div>
               <div className="mb-3">
-                <FormLabel htmlfor={"password"} label="Password" />
+                <CustomFormLabel htmlfor={"password"} label="Password" compulsory />
                 <FormInput
                   id="password"
                   type={"password"}
@@ -40,7 +40,11 @@ const AddMarketing = () => {
                 />
               </div>
               <div className="mb-3">
-                <FormLabel htmlfor={"incentive"} label="Incentive (%)" />
+                <CustomFormLabel
+                  htmlfor={"incentive"}
+                  label="Incentive (%)"
+                  compulsory
+                />
                 <FormInput
                   id="incentive"
                   type={"text"}
@@ -48,9 +52,18 @@ const AddMarketing = () => {
                 />
               </div>
               <div className="mb-3">
-                <FormLabel
+                <CustomFormLabel
+                  htmlfor={"lots"}
+                  label="Net Lots (Monthly)"
+                  compulsory
+                />
+                <FormInput id="lots" type={"text"} placeholder={"Enter Lots"} />
+              </div>
+              <div className="mb-3">
+                <CustomFormLabel
                   htmlfor={"netdeposit"}
                   label="Net Deposit (Monthly)"
+                  compulsory
                 />
                 <FormInput
                   id="netdeposit"

@@ -1,7 +1,7 @@
 import AdminCard from "components/admindashboard/common/admin-form";
 import { ContentLayout } from "components/admindashboard/common/content-layout";
 import FormInput from "components/common/form-input";
-import FormLabel from "components/common/form-label";
+import CustomFormLabel from "components/common/form-label";
 import FormSelectSearch from "components/common/form-select-search";
 import { Button } from "components/ui/button";
 import React from "react";
@@ -13,7 +13,7 @@ const AddUser = () => {
         title={"Add User"}
         breadcrumb={[
           { name: "Dashboard", link: "/admin/dashboard" },
-          { name: "User Managment", link: "#" },
+          { name: "User Management", link: "#" },
           { name: "Add User", link: "#" },
         ]}
       >
@@ -21,11 +21,11 @@ const AddUser = () => {
           <form>
             <div className="grid grid-cols-3 gap-4">
               <div className="mb-3">
-                <FormLabel htmlfor={"name"} label="Name" />
+                <CustomFormLabel htmlfor={"name"} label="Name" compulsory />
                 <FormInput id="name" type={"text"} placeholder={"Enter Name"} />
               </div>
               <div className="mb-3">
-                <FormLabel htmlfor={"email"} label="Email" />
+                <CustomFormLabel htmlfor={"email"} label="Email" compulsory />
                 <FormInput
                   id="email"
                   type={"email"}
@@ -33,7 +33,7 @@ const AddUser = () => {
                 />
               </div>
               <div className="mb-3">
-                <FormLabel htmlfor={"password"} label="Password" />
+                <CustomFormLabel htmlfor={"password"} label="Password" compulsory />
                 <FormInput
                   id="password"
                   type={"password"}
@@ -41,7 +41,7 @@ const AddUser = () => {
                 />
               </div>
               <div className="mb-3">
-                <FormLabel htmlfor={"country"} label="Country" />
+                <CustomFormLabel htmlfor={"country"} label="Country" compulsory />
                 <FormSelectSearch
                   data={[]}
                   emptyText={"No Country Found"}
@@ -49,7 +49,7 @@ const AddUser = () => {
                 />
               </div>
               <div className="mb-3">
-                <FormLabel htmlfor={"phone"} label="Phone" />
+                <CustomFormLabel htmlfor={"phone"} label="Phone" compulsory />
                 <div className="grid grid-cols-4 gap-1">
                   <FormInput id="phone" type={"text"} disabled value={"+998"} />
                   <div className="col-span-3">
@@ -62,7 +62,7 @@ const AddUser = () => {
                 </div>
               </div>
               <div className="mb-3">
-                <FormLabel htmlfor={"status"} label="Status" />
+                <CustomFormLabel htmlfor={"status"} label="Status" compulsory />
                 <FormSelectSearch
                   data={[]}
                   emptyText={"No status Found"}
@@ -70,7 +70,7 @@ const AddUser = () => {
                 />
               </div>
               <div className="mb-3">
-                <FormLabel htmlfor={"marketing"} label="Marketing" />
+                <CustomFormLabel htmlfor={"marketing"} label="Marketing" />
                 <FormSelectSearch
                   data={[]}
                   emptyText={"No Marketing Found"}

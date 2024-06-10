@@ -20,7 +20,12 @@ const CustomTable = ({ table, columns, theme }) => {
         )}
       >
         {table.getHeaderGroups().map((headerGroup) => (
-          <TableRow key={headerGroup.id}>
+          <TableRow
+            key={headerGroup.id}
+            className={cn(
+              theme == "dark" ? "border-slate-800" : "border-slate-300"
+            )}
+          >
             {headerGroup.headers.map((header) => {
               return (
                 <TableHead
@@ -49,10 +54,8 @@ const CustomTable = ({ table, columns, theme }) => {
               className={cn(
                 "text-xs",
                 theme == "dark"
-                  ? "bg-slate-950 text-white border-slate-700"
-                  : "bg-slate-100",
-                theme == "dark" && (index + 1) % 2 == 0 ? "bg-gray-900" : "",
-                theme == "light" && (index + 1) % 2 == 0 ? "bg-slate-200" : ""
+                  ? "bg-slate-950 odd:bg-slate-900 even:bg-gray-950 text-white border-slate-950"
+                  : "odd:bg-slate-100 even:bg-slate-200"
               )}
             >
               {row.getVisibleCells().map((cell) => (

@@ -1,3 +1,4 @@
+import CustomTableActionDropdown from "components/common/data-table/custom-table-action-dropdown";
 import { DataTableColumnHeader } from "components/common/data-table/data-table-column-header";
 import { Button } from "components/ui/button";
 import {
@@ -178,71 +179,62 @@ export const userListColumns = [
     cell: ({ row }) => {
       const { theme } = useContext(ThemeContext);
       return (
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button
-              variant="ghost"
-              className="flex h-8 w-8 p-0 data-[state=open]:bg-muted bg-primary text-white hover:bg-secondary"
-            >
-              <MoreHorizontal className="h-4 w-4" />
-              <span className="sr-only">Open menu</span>
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent
-            align="end"
-            className={cn(
-              "w-[160px] p-2 cursor-pointer",
-              theme == "dark"
-                ? "bg-gray-950 text-white border-none"
-                : "bg-white"
-            )}
-          >
-            <DropdownMenuItem
-              className={cn(
-                "hover:cursor-pointer rounded-md",
-                theme == "dark" ? "hover:bg-slate-800" : "hover:bg-slate-100"
-              )}
-            >
-              <div className="flex items-center space-x-2 flex-1">
-                <Edit2 size={15} />
-                <p>Edit</p>
-              </div>
-            </DropdownMenuItem>
-            <DropdownMenuItem
-              className={cn(
-                "hover:cursor-pointer rounded-md",
-                theme == "dark" ? "hover:bg-slate-800" : "hover:bg-slate-100"
-              )}
-            >
-              <div className="flex items-center space-x-2 flex-1">
-                <Eye size={15} />
-                <p>Details</p>
-              </div>
-            </DropdownMenuItem>
-            <DropdownMenuItem
-              className={cn(
-                "hover:cursor-pointer rounded-md",
-                theme == "dark" ? "hover:bg-slate-800" : "hover:bg-slate-100"
-              )}
-            >
-              <div className="flex items-center space-x-2 flex-1">
-                <Settings size={15} />
-                <p>Settings</p>
-              </div>
-            </DropdownMenuItem>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem
-              className={cn(
-                "hover:bg-danger hover:text-white hover:cursor-pointer rounded-md"
-              )}
-            >
-              <div className="flex items-center space-x-2 flex-1">
-                <Trash size={15} />
-                <p>Delete</p>
-              </div>
-            </DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
+        <CustomTableActionDropdown
+          theme={theme}
+          data={[
+            {
+              name: "Edit",
+              icon: (
+                <>
+                  <Edit2 size={15} />
+                </>
+              ),
+              type: "normal",
+              link: "",
+              customClass: "",
+            },
+            {
+              name: "Details",
+              icon: (
+                <>
+                  <Eye size={15} />
+                </>
+              ),
+              type: "normal",
+              link: "",
+              customClass: "",
+            },
+            {
+              name: "Settings",
+              icon: (
+                <>
+                  <Settings size={15} />
+                </>
+              ),
+              type: "normal",
+              link: `/admin/usermanagement/usersettings/${row.getValue("id")}`,
+              customClass: "",
+            },
+            {
+              name: "",
+              icon: <></>,
+              type: "seperator",
+              link: "",
+              customClass: "",
+            },
+            {
+              name: "Delete",
+              icon: (
+                <>
+                  <Trash size={15} />
+                </>
+              ),
+              type: "normal",
+              link: "",
+              customClass: "hover:bg-danger",
+            },
+          ]}
+        />
       );
     },
   },

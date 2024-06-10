@@ -16,9 +16,19 @@
     --dark-icon: rgb(71 85 105);
     --danger: rgb(220 38 38);
     --info: rgb(14 165 233);
-    --success: #7ca40a;
-    --warning: #ffdb5c;
+    --success: #71c305;
+    --warning: #ffd53e;
     --btn-text: white;
+    --dark-theme-slate-950: rgb(2 6 23);
+    --dark-theme-slate-900: rgb(15 23 42);
+    --dark-theme-slate-800: rgb(30 41 59);
+    --dark-theme-gray-950: rgb(3 7 18);
+    --dark-theme-gray-900: rgb(17 24 39);
+    --dark-theme-gray-800: rgb(31 41 55);
+    --light-theme-slate-50: rgb(248 250 252);
+    --light-theme-slate-100: rgb(241 245 249);
+    --light-theme-slate-200: rgb(226 232 240);
+    --light-theme-slate-300: rgb(203 213 225);
   }
 
   html {
@@ -65,4 +75,79 @@
 .rd3t-tree-container svg .rd3t-g path {
   stroke: rgb(148 163 184);
   stroke-width: 2;
+}
+
+.dark .ql-toolbar .ql-stroke {
+  stroke: rgb(148 163 184);
+  color: rgb(148 163 184);
+}
+
+.dark .ql-toolbar .ql-fill {
+  stroke: rgb(148 163 184);
+  color: rgb(148 163 184);
+}
+
+.dark .ql-toolbar.ql-snow {
+  border: 1px solid rgb(52, 63, 79);
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  background-color: rgb(15 23 42);
+}
+
+.light .ql-toolbar.ql-snow {
+  border: 1px solid #e5e7eb;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.dark .ql-toolbar.ql-snow .ql-picker.ql-expanded .ql-picker-options {
+  background-color: rgb(3 7 18);
+  border: 1px solid rgb(15 23 42);
+  border-color: rgb(26, 35, 58);
+  border-radius: 5px;
+  color: rgb(71 85 105);
+}
+
+.dark .ql-snow.ql-toolbar .ql-picker-item:hover {
+  color: white;
+}
+
+.dark .ql-snow.ql-toolbar .ql-picker-item.ql-selected {
+  color: white;
+}
+
+.dark .ql-snow.ql-toolbar button:hover,
+.dark .ql-snow.ql-toolbar button:hover .ql-stroke,
+.dark .ql-snow.ql-toolbar button:hover .ql-fill {
+  color: white;
+  stroke: white;
+}
+
+.dark .ql-snow.ql-toolbar button.ql-active .ql-stroke,
+.dark .ql-snow.ql-toolbar button.ql-active .ql-fill {
+  color: white;
+  stroke: white;
+}
+
+.dark .ql-container.ql-snow {
+  border: 1px solid rgb(52, 63, 79);
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  color: white;
+  background-color: rgb(15 23 42);
+}
+
+.light .ql-container.ql-snow {
+  border: 1px solid #e5e7eb;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.dark .ql-toolbar .ql-picker .ql-picker-label {
+  fill: rgb(148 163 184);
+  stroke: rgb(148 163 184);
+  color: rgb(148 163 184);
+}
+.dark .ql-snow.ql-toolbar .ql-picker-label:hover .ql-stroke {
+  stroke: rgb(148 163 184);
 }

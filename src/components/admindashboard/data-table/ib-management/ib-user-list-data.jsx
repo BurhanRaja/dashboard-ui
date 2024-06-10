@@ -137,7 +137,7 @@ export const ibUserListColumns = [
               ),
               type: "",
               customClass: "",
-              link: "/admin/ibmanagment/treetest/" + row.getValue("id"),
+              link: "/admin/ibmanagement/treetest/" + row.getValue("id"),
             },
           ]}
           theme={theme}

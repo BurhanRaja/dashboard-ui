@@ -36,7 +36,17 @@ import BonusList from "pages/admin/bonus/bonus-list";
 import IBUserList from "pages/admin/ib-management/ib-user-list";
 import IBRequestList from "pages/admin/ib-management/ib-request-list";
 import IBPlanList from "pages/admin/ib-management/ib-plan-list";
-import IBTreeChart from "pages/admin/ib-management/ib-tree-chart";
+import IBTreeChart from "pages/admin/ib-management/ib-user/ib-tree-chart";
+import IBPlanAdd from "pages/admin/ib-management/ib-plan/ib-plan-add";
+import IBCommissionGroupList from "pages/admin/ib-management/ib-commission-group-list";
+import SetIBCommissionList from "pages/admin/ib-management/set-ib-commission";
+import MoveIBToClient from "pages/admin/ib-management/move-ib-to-client";
+import GroupList from "pages/admin/group-management/group-list";
+import PromotionList from "pages/admin/settings/promotion-list";
+import DefaultSettings from "pages/admin/settings/default-settings";
+import UserSettings from "pages/admin/user-management/user/user-settings";
+import SystemSettings from "pages/admin/settings/system-settings";
+import SendMail from "pages/admin/send-mail";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -52,9 +62,11 @@ function App() {
                 path="/admin/managementdashboard"
                 element={<ManagerDashboard />}
               />
+              <Route path="/admin/sendmail" element={<SendMail />} />
               <Route path="/admin/usermanagement">
                 <Route path="adduser" element={<AddUser />} />
                 <Route path="userlist" element={<UserList />} />
+                <Route path="usersettings/:id" element={<UserSettings />} />
                 <Route path="mt5userlist" element={<Mt5UserList />} />
                 <Route path="followuplist" element={<FollowUpList />} />
                 <Route
@@ -103,15 +115,26 @@ function App() {
                 <Route path="removebonus" element={<RemoveBonus />} />
                 <Route path="bonuslist" element={<BonusList />} />
               </Route>
-              <Route path="/admin/ibmanagment">
+              <Route path="/admin/ibmanagement">
                 <Route path="ibuserlist" element={<IBUserList />} />
                 <Route path="ibrequestlist" element={<IBRequestList />} />
                 <Route path="ibplanlist" element={<IBPlanList />} />
                 <Route path="treetest/:id" element={<IBTreeChart />} />
+                <Route path="addibplan" element={<IBPlanAdd />} />
+                <Route
+                  path="ibcommissiongroup"
+                  element={<IBCommissionGroupList />}
+                />
+                <Route
+                  path="setibcommission"
+                  element={<SetIBCommissionList />}
+                />
+                <Route path="moveclienttoib" element={<MoveIBToClient />} />
               </Route>
               <Route path="/admin/groupmanagement">
                 <Route path="addgroup" element={<AddGroup />} />
                 <Route path="updatemt5group" element={<UpdateMt5Group />} />
+                <Route path="grouplist" element={<GroupList />} />
               </Route>
               <Route path="/admin/transaction">
                 <Route path="clientdeposit" element={<ClientDeposit />} />
@@ -121,6 +144,11 @@ function App() {
               </Route>
               <Route path="/admin/marketing">
                 <Route path="addmarketing" element={<AddMarketing />} />
+              </Route>
+              <Route path="/admin/settings">
+                <Route path="promotionlist" element={<PromotionList />} />
+                <Route path="defaultsettings" element={<DefaultSettings />} />
+                <Route path="systemsettings" element={<SystemSettings />} />
               </Route>
               <Route path="/admin/subadmin">
                 <Route path="createsubadmin" element={<CreateSubAdmin />} />

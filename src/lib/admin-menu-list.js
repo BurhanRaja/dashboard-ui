@@ -63,7 +63,9 @@ export function getMenuList(pathname) {
             {
               href: "/admin/usermanagement/userlist",
               label: "User List",
-              active: pathname == "/admin/usermanagement/userlist",
+              active:
+                pathname == "/admin/usermanagement/userlist" ||
+                pathname.includes("/admin/usermanagement/usersettings"),
             },
             {
               href: "/admin/usermanagement/createmt5account",
@@ -178,40 +180,48 @@ export function getMenuList(pathname) {
         {
           href: "",
           label: "IB Management",
-          active: pathname.includes("/admin/ibmanagment"),
+          active: pathname.includes("/admin/ibmanagement"),
           icon: Network,
           submenus: [
             {
-              href: "/admin/ibmanagment/ibuserlist",
+              href: "/admin/ibmanagement/ibuserlist",
               label: "IB Users",
               active:
-                pathname === "/admin/ibmanagment/ibuserlist" ||
-                pathname.includes("/admin/ibmanagment/treetest"),
+                pathname === "/admin/ibmanagement/ibuserlist" ||
+                pathname.includes("/admin/ibmanagement/treetest"),
             },
             {
-              href: "/admin/ibmanagment/ibrequestlist",
+              href: "/admin/ibmanagement/ibrequestlist",
               label: "IB Request",
-              active: pathname === "/admin/ibmanagment/ibrequestlist",
+              active: pathname === "/admin/ibmanagement/ibrequestlist",
             },
             {
-              href: "/admin/ibmanagment/ibplanlist",
+              href: "/admin/ibmanagement/ibplanlist",
               label: "IB Plan",
-              active: pathname === "/admin/ibmanagment/ibplanlist",
+              active:
+                pathname === "/admin/ibmanagement/ibplanlist" ||
+                pathname === "/admin/ibmanagement/addibplan",
             },
             {
-              href: "/posts/new",
+              href: "/admin/ibmanagement/ibcommissiongroup",
               label: "Commission Group",
-              active: pathname === "/posts/new",
+              active:
+                pathname === "/admin/ibmanagement/ibcommissiongroup" ||
+                pathname === "/admin/ibmanagement/addibcommissiongroup" ||
+                pathname === "/admin/ibmanagement/editibcommissiongroup",
             },
             {
-              href: "/posts/new",
+              href: "/admin/ibmanagement/setibcommission",
               label: "Set IB Commission",
-              active: pathname === "/posts/new",
+              active:
+                pathname === "/admin/ibmanagement/setibcommission" ||
+                pathname === "/admin/ibmanagement/addsetibcommission" ||
+                pathname === "/admin/ibmanagement/editsetibcommission",
             },
             {
-              href: "/posts/new",
+              href: "/admin/ibmanagement/moveclienttoib",
               label: "Move Client to IB",
-              active: pathname === "/posts/new",
+              active: pathname === "/admin/ibmanagement/moveclienttoib",
             },
           ],
         },
@@ -231,9 +241,9 @@ export function getMenuList(pathname) {
               active: pathname === "/admin/groupmanagement/addgroup",
             },
             {
-              href: "/posts/new",
+              href: "/admin/groupmanagement/grouplist",
               label: "Group List",
-              active: pathname === "/posts/new",
+              active: pathname === "/admin/groupmanagement/grouplist",
             },
             {
               href: "/admin/groupmanagement/updatemt5group",
@@ -326,9 +336,9 @@ export function getMenuList(pathname) {
     {
       menus: [
         {
-          href: "",
+          href: "/admin/sendmail",
           label: "Send Mail",
-          active: pathname.includes("/admin/dashboard/user"),
+          active: pathname.includes("/admin/sendmail"),
           icon: Mail,
           submenus: [],
         },
@@ -474,23 +484,23 @@ export function getMenuList(pathname) {
         {
           href: "",
           label: "Settings",
-          active: pathname.includes("/admin/dashboard/user"),
+          active: pathname.includes("/admin/settings"),
           icon: Settings,
           submenus: [
             {
-              href: "/posts",
+              href: "/admin/settings/promotionlist",
               label: "Promotion List",
-              active: pathname === "/posts",
+              active: pathname === "/admin/settings/promotionlist",
             },
             {
-              href: "/posts/new",
+              href: "/admin/settings/defaultsettings",
               label: "Default Settings",
-              active: pathname === "/posts/new",
+              active: pathname === "/admin/settings/defaultsettings",
             },
             {
-              href: "/posts/new",
+              href: "/admin/settings/systemsettings",
               label: "System Settings",
-              active: pathname === "/posts/new",
+              active: pathname === "/admin/settings/systemsettings",
             },
             {
               href: "/posts/new",

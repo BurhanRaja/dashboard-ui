@@ -2,7 +2,7 @@ import AdminCard from "components/admindashboard/common/admin-form";
 import { ContentLayout } from "components/admindashboard/common/content-layout";
 import FormFileInput from "components/common/form-file-input";
 import FormInput from "components/common/form-input";
-import FormLabel from "components/common/form-label";
+import CustomFormLabel from "components/common/form-label";
 import FormSelectSearch from "components/common/form-select-search";
 import { Button } from "components/ui/button";
 import React from "react";
@@ -23,7 +23,7 @@ const ClientWithdraw = () => {
             <div className="grid grid-cols-2 gap-4">
               <div className="grid grid-cols-1 gap-4">
                 <div className="mb-3">
-                  <FormLabel htmlfor={"users"} label="Select User" />
+                  <CustomFormLabel htmlfor={"users"} label="Select User" compulsory />
                   <FormSelectSearch
                     data={[]}
                     emptyText={"No User Found"}
@@ -32,7 +32,11 @@ const ClientWithdraw = () => {
                   />
                 </div>
                 <div className="mb-3">
-                  <FormLabel htmlfor={"withdrawFrom"} label="Withdraw From" />
+                  <CustomFormLabel
+                    htmlfor={"withdrawFrom"}
+                    label="Withdraw From"
+                    compulsory
+                  />
                   <FormSelectSearch
                     data={[]}
                     emptyText={"No Results Found"}
@@ -41,7 +45,11 @@ const ClientWithdraw = () => {
                   />
                 </div>
                 <div className="mb-3">
-                  <FormLabel htmlfor={"withdrawTo"} label="Withdraw To" />
+                  <CustomFormLabel
+                    htmlfor={"withdrawTo"}
+                    label="Withdraw To"
+                    compulsory
+                  />
                   <FormSelectSearch
                     data={[]}
                     emptyText={"No Results Found"}
@@ -50,11 +58,11 @@ const ClientWithdraw = () => {
                   />
                 </div>
                 {/* <div className="mb-3">
-                  <FormLabel htmlfor={"depositproof"} label="" />
+                  <CustomFormLabel htmlfor={"depositproof"} label="" />
                   <FormFileInput id={"depositproof"} />
                 </div> */}
                 <div className="mb-3">
-                  <FormLabel htmlfor={"amount"} label="Amount" />
+                  <CustomFormLabel htmlfor={"amount"} label="Amount" compulsory />
                   <FormInput
                     id="amount"
                     type={"text"}
@@ -62,7 +70,7 @@ const ClientWithdraw = () => {
                   />
                 </div>
                 <div className="mb-3">
-                  <FormLabel htmlfor={"comment"} label="Comment" />
+                  <CustomFormLabel htmlfor={"comment"} label="Comment" compulsory />
                   <FormInput
                     id="comment"
                     type={"text"}

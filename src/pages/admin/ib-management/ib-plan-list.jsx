@@ -7,6 +7,7 @@ import {
 import MainDataTable from "components/common/data-table/main-table";
 import { Button } from "components/ui/button";
 import React from "react";
+import { Link } from "react-router-dom";
 
 const IBPlanList = () => {
   const ibPlanList = [
@@ -33,14 +34,16 @@ const IBPlanList = () => {
         title={"IB Plan List"}
         breadcrumb={[
           { name: "Dashboard", link: "/admin/dashboard" },
-          { name: "User Managment", link: "#" },
+          { name: "User Management", link: "#" },
           { name: "IB Plan List", link: "#" },
         ]}
       >
         <div className="flex justify-end items-center my-3 px-4">
-          <Button className="bg-primary hover:bg-secondary text-btntext">
-            Add Plan
-          </Button>
+          <Link to={"/admin/ibmanagement/addibplan"}>
+            <Button className="bg-primary hover:bg-secondary text-btntext">
+              Add Plan
+            </Button>
+          </Link>
         </div>
         <AdminCard table>
           <div className="hidden h-full flex-1 flex-col space-y-8 md:flex">

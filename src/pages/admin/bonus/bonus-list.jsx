@@ -44,7 +44,7 @@ const BonusList = () => {
         title={"Bonus List"}
         breadcrumb={[
           { name: "Dashboard", link: "/admin/dashboard" },
-          { name: "User Managment", link: "#" },
+          { name: "User Management", link: "#" },
           { name: "Bonus List", link: "#" },
         ]}
       >

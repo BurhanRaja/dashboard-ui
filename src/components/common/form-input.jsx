@@ -18,8 +18,8 @@ const FormInput = ({ type, id, placeholder, disabled, value, setValue }) => {
         className={cn(
           "mt-1 p-4 py-6",
           theme == "dark"
-            ? "bg-slate-900 text-white border-slate-800 focus:border-slate-600 focus:ring-0"
-            : "bg-white"
+            ? "bg-slate-900 text-white border-slate-800 focus:border-slate-600 focus:ring-0 focus-visible:ring-slate-700 focus-visible:ring-offset-0"
+            : "bg-white focus-visible:ring-slate-200 focus-visible:ring-offset-0"
         )}
       />
     </>

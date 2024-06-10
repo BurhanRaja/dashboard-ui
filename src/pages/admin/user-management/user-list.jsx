@@ -259,7 +259,7 @@ const UserList = () => {
         title={"User List"}
         breadcrumb={[
           { name: "Dashboard", link: "/admin/dashboard" },
-          { name: "User Managment", link: "#" },
+          { name: "User Management", link: "#" },
           { name: "User List", link: "#" },
         ]}
       >

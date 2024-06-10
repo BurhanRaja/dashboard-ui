@@ -22,10 +22,17 @@ const SimpleTable = ({ caption, headData, bodyData, theme }) => {
       <TableHeader
         className={cn("", theme == "dark" ? "bg-gray-950" : "bg-slate-200")}
       >
-        <TableRow>
+        <TableRow
+          className={cn(
+            theme == "dark" ? "border-slate-500" : "border-slate-300"
+          )}
+        >
           {headData?.map((el) => {
             return (
-              <TableHead key={el?.name} className={cn(el?.style, "font-semibold")}>
+              <TableHead
+                key={el?.name}
+                className={cn(el?.style, "font-semibold")}
+              >
                 {el?.name}
               </TableHead>
             );
@@ -36,7 +43,11 @@ const SimpleTable = ({ caption, headData, bodyData, theme }) => {
         {bodyData?.map((el) => (
           <TableRow
             key={el?.id}
-            className={cn(theme == "dark" ? "border-b-slate-700" : "")}
+            className={cn(
+              theme == "dark"
+                ? "border-b-slate-800 odd:bg-slate-900"
+                : "even:bg-slate-100"
+            )}
           >
             {el?.data?.map((data) => {
               return (

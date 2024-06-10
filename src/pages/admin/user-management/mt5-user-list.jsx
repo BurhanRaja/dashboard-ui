@@ -1,6 +1,10 @@
 import AdminCard from "components/admindashboard/common/admin-form";
 import { ContentLayout } from "components/admindashboard/common/content-layout";
-import { mt5UserListColumns, mt5UserListFacetFilter, mt5UserListSearchKeys } from "components/admindashboard/data-table/user-management/mt5-user-list-data";
+import {
+  mt5UserListColumns,
+  mt5UserListFacetFilter,
+  mt5UserListSearchKeys,
+} from "components/admindashboard/data-table/user-management/mt5-user-list-data";
 import MainDataTable from "components/common/data-table/main-table";
 import React from "react";
 
@@ -62,7 +66,7 @@ const Mt5UserList = () => {
         title={"User List"}
         breadcrumb={[
           { name: "Dashboard", link: "/admin/dashboard" },
-          { name: "User Managment", link: "#" },
+          { name: "User Management", link: "#" },
           { name: "User List", link: "#" },
         ]}
       >

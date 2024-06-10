@@ -41,7 +41,7 @@ const ApprovedDocumentList = () => {
         title={"Approved Document List"}
         breadcrumb={[
           { name: "Dashboard", link: "/admin/dashboard" },
-          { name: "User Managment", link: "#" },
+          { name: "User Management", link: "#" },
           { name: "Approved Document List", link: "#" },
         ]}
       >

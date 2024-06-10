@@ -2,7 +2,7 @@ import AdminCard from "components/admindashboard/common/admin-form";
 import { ContentLayout } from "components/admindashboard/common/content-layout";
 import FormFileInput from "components/common/form-file-input";
 import FormInput from "components/common/form-input";
-import FormLabel from "components/common/form-label";
+import CustomFormLabel from "components/common/form-label";
 import FormSelectSearch from "components/common/form-select-search";
 import { Button } from "components/ui/button";
 import { Input } from "components/ui/input";
@@ -15,7 +15,7 @@ const UploadUserDocument = () => {
         title={"Upload User Documents"}
         breadcrumb={[
           { name: "Dashboard", link: "/admin/dashboard" },
-          { name: "User Managment", link: "#" },
+          { name: "User Management", link: "#" },
           { name: "Upload User Documents", link: "#" },
         ]}
       >
@@ -24,7 +24,7 @@ const UploadUserDocument = () => {
             <div className="grid grid-cols-2 gap-4">
               <div className="grid grid-cols-1 gap-4">
                 <div className="mb-3">
-                  <FormLabel htmlfor={"users"} label="Select User" />
+                  <CustomFormLabel htmlfor={"users"} label="Select User" compulsory />
                   <FormSelectSearch
                     data={[]}
                     emptyText={"No User Found"}
@@ -33,11 +33,11 @@ const UploadUserDocument = () => {
                   />
                 </div>
                 <div className="mb-3">
-                  <FormLabel htmlfor={"poi"} label="Upload POI" />
+                  <CustomFormLabel htmlfor={"poi"} label="Upload POI" compulsory />
                   <FormFileInput id={"poi"} />
                 </div>
                 <div className="mb-3">
-                  <FormLabel htmlfor={"poa"} label="Upload POA" />
+                  <CustomFormLabel htmlfor={"poa"} label="Upload POA" compulsory />
                   <FormFileInput id={"poa"} />
                 </div>
               </div>

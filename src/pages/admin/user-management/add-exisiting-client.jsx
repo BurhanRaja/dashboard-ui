@@ -1,7 +1,7 @@
 import AdminCard from "components/admindashboard/common/admin-form";
 import { ContentLayout } from "components/admindashboard/common/content-layout";
 import FormInput from "components/common/form-input";
-import FormLabel from "components/common/form-label";
+import CustomFormLabel from "components/common/form-label";
 import FormSelectSearch from "components/common/form-select-search";
 import { Button } from "components/ui/button";
 import React from "react";
@@ -13,7 +13,7 @@ const AddExisitingClient = () => {
         title={"Add Exisiting Client"}
         breadcrumb={[
           { name: "Dashboard", link: "/admin/dashboard" },
-          { name: "User Managment", link: "#" },
+          { name: "User Management", link: "#" },
           { name: "Add Exisiting Client", link: "#" },
         ]}
       >
@@ -22,7 +22,7 @@ const AddExisitingClient = () => {
             <div className="grid grid-cols-2 gap-4">
               <div className="grid grid-cols-1 gap-4">
                 <div className="mb-3">
-                  <FormLabel htmlfor={"users"} label="Select User" />
+                  <CustomFormLabel htmlfor={"users"} label="Select User" compulsory />
                   <FormSelectSearch
                     data={[]}
                     emptyText={"No User Found"}
@@ -31,7 +31,11 @@ const AddExisitingClient = () => {
                   />
                 </div>
                 <div className="mb-3">
-                  <FormLabel htmlfor={"mt5accounts"} label="MT5 Accounts" />
+                  <CustomFormLabel
+                    htmlfor={"mt5accounts"}
+                    label="MT5 Accounts"
+                    compulsory
+                  />
                   <FormInput
                     type="text"
                     id="mt5accounts"

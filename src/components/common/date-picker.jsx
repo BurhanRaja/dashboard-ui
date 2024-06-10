@@ -18,8 +18,10 @@ const CustomDatePicker = ({ date, setDate, margin }) => {
           <Button
             variant={"outline"}
             className={cn(
-              "w-[100%] justify-start text-left font-normal border-none",
-              theme == "dark" ? "bg-slate-950 text-white" : "bg-white",
+              "w-[100%] justify-start text-left font-normal",
+              theme == "dark"
+                ? "bg-slate-950 text-white border-slate-800"
+                : "bg-white",
               !date && "text-muted-foreground"
             )}
             style={{

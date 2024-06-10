@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Button } from "components/ui/button";
 import {
   DropdownMenu,
@@ -10,10 +10,12 @@ import {
 import { MoreHorizontal } from "lucide-react";
 import { cn } from "lib/utils";
 import { Link } from "react-router-dom";
+import ThemeContext from "context/theme-context";
 
-const CustomTableActionDropdown = ({ data, customWidth, theme }) => {
+const CustomTableActionDropdown = ({ data, customWidth }) => {
+  const { theme } = useContext(ThemeContext);
   return (
-    <>
+    <div className="flex justify-center items-center w-[100%]">
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button
@@ -27,7 +29,7 @@ const CustomTableActionDropdown = ({ data, customWidth, theme }) => {
         <DropdownMenuContent
           align="end"
           className={cn(
-            "p-2 cursor-pointer",
+            "p-2 cursor-pointer w-[160px]",
             theme == "dark"
               ? `bg-gray-950 text-white border-none ${customWidth}`
               : `bg-white  ${customWidth}`
@@ -65,7 +67,7 @@ const CustomTableActionDropdown = ({ data, customWidth, theme }) => {
           })}
         </DropdownMenuContent>
       </DropdownMenu>
-    </>
+    </div>
   );
 };
 

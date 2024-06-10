@@ -1,7 +1,7 @@
 import AdminCard from "components/admindashboard/common/admin-form";
 import { ContentLayout } from "components/admindashboard/common/content-layout";
 import FormInput from "components/common/form-input";
-import FormLabel from "components/common/form-label";
+import CustomFormLabel from "components/common/form-label";
 import FormSelectSearch from "components/common/form-select-search";
 import { Button } from "components/ui/button";
 import React from "react";
@@ -22,11 +22,15 @@ const AddGroup = () => {
             <div className="grid grid-cols-2 gap-4">
               <div className="grid grid-cols-1 gap-4">
                 <div className="mb-3">
-                  <FormLabel htmlfor={"name"} label="Name" />
+                  <CustomFormLabel htmlfor={"name"} label="Name" compulsory />
                   <FormInput type="text" id="name" placeholder={"Enter Name"} />
                 </div>
                 <div className="mb-3">
-                  <FormLabel htmlfor={"mtgroup"} label="MT5 Group" />
+                  <CustomFormLabel
+                    htmlfor={"mtgroup"}
+                    label="MT5 Group"
+                    compulsory
+                  />
                   <FormInput
                     type="text"
                     id="mtgroup"
@@ -34,7 +38,11 @@ const AddGroup = () => {
                   />
                 </div>
                 <div className="mb-3">
-                  <FormLabel htmlfor={"status"} label="Select Status" />
+                  <CustomFormLabel
+                    htmlfor={"status"}
+                    label="Select Status"
+                    compulsory
+                  />
                   <FormSelectSearch
                     data={[
                       {

@@ -26,8 +26,10 @@ const SelectSearch = ({ data, emptyText, value, setValue, margin }) => {
           role="combobox"
           aria-expanded={open}
           className={cn(
-            "w-[100%] justify-between border-none",
-            theme == "dark" ? "bg-slate-950 text-white" : "bg-white"
+            "w-[100%] justify-between",
+            theme == "dark"
+              ? "bg-slate-950 border-slate-800 text-white"
+              : "bg-white"
           )}
           style={{
             marginTop: margin ? "5px" : "",
@@ -39,7 +41,7 @@ const SelectSearch = ({ data, emptyText, value, setValue, margin }) => {
           <ChevronDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-[200px] p-0 border-none">
+      <PopoverContent className="w-[200px] p-0">
         <Command
           className={cn(
             theme == "dark" ? "bg-gray-950 text-white" : "bg-white"

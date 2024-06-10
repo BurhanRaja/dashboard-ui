@@ -41,7 +41,7 @@ const PendingDocumentList = () => {
         title={"Pending Document List"}
         breadcrumb={[
           { name: "Dashboard", link: "/admin/dashboard" },
-          { name: "User Managment", link: "#" },
+          { name: "User Management", link: "#" },
           { name: "Pending Document List", link: "#" },
         ]}
       >

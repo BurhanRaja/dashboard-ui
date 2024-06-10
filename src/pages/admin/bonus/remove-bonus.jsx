@@ -1,7 +1,7 @@
 import AdminCard from "components/admindashboard/common/admin-form";
 import { ContentLayout } from "components/admindashboard/common/content-layout";
 import FormInput from "components/common/form-input";
-import FormLabel from "components/common/form-label";
+import CustomFormLabel from "components/common/form-label";
 import FormSelectSearch from "components/common/form-select-search";
 import { Button } from "components/ui/button";
 import React from "react";
@@ -22,7 +22,11 @@ const RemoveBonus = () => {
             <div className="grid grid-cols-2 gap-4">
               <div className="grid grid-cols-1 gap-4">
                 <div className="mb-3">
-                  <FormLabel htmlfor={"account"} label="Select Account" />
+                  <CustomFormLabel
+                    htmlfor={"account"}
+                    label="Select Account"
+                    compulsory
+                  />
                   <FormSelectSearch
                     data={[]}
                     emptyText={"No Account Found"}
@@ -31,7 +35,11 @@ const RemoveBonus = () => {
                   />
                 </div>
                 <div className="mb-3">
-                  <FormLabel htmlfor={"amount"} label="Amount" />
+                  <CustomFormLabel
+                    htmlfor={"amount"}
+                    label="Amount"
+                    compulsory
+                  />
                   <FormInput
                     type="text"
                     id="amount"
@@ -39,7 +47,11 @@ const RemoveBonus = () => {
                   />
                 </div>
                 <div className="mb-3">
-                  <FormLabel htmlfor={"comment"} label="Comment" />
+                  <CustomFormLabel
+                    htmlfor={"comment"}
+                    label="Comment"
+                    compulsory
+                  />
                   <FormInput
                     type="text"
                     id="comment"

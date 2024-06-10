@@ -53,12 +53,14 @@ const FormSelectSearch = ({
           className={cn(
             "p-0",
             width ? width : "w-[350px] ",
-            theme == "dark" ? "border-gray-700" : ""
+            theme == "dark" ? "border-gray-700" : "border-slate-100"
           )}
         >
           <Command
             className={cn(
-              theme == "dark" ? "bg-gray-950 text-white" : "bg-white"
+              theme == "dark"
+                ? "bg-gray-950 text-white"
+                : "bg-white border-slate-100"
             )}
           >
             <CommandInput theme={theme} placeholder="Search..." />

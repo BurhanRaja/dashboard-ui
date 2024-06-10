@@ -74,7 +74,7 @@ export default function OrgChartTree({ data }) {
         rootNodeClassName="demo-node"
         branchNodeClassName="demo-node"
         svgClassName="demo-node"
-        depthFactor={350}
+        depthFactor={400}
         translate={{ x: 150, y: 400 }}
         data={data}
         nodeSize={nodeSize}

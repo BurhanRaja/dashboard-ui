@@ -82,51 +82,60 @@ const MainDataTable = ({
       <div className="">
         <div className="flex flex-1 items-center justify-between space-x-2 mb-3">
           <div className="flex flex-1 items-center space-x-2">
-            <Select value={key} onValueChange={(val) => handleInputFilter(val)}>
-              <SelectTrigger
-                className={cn(
-                  "w-[110px] p-0.5 h-10 px-2",
-                  theme == "dark"
-                    ? "text-white bg-slate-900 border-slate-800"
-                    : ""
+            {searchKeys?.length > 0 && (
+              <>
+                <Select
+                  value={key}
+                  onValueChange={(val) => handleInputFilter(val)}
+                >
+                  <SelectTrigger
+                    className={cn(
+                      "w-[110px] p-0.5 h-10 px-2",
+                      theme == "dark"
+                        ? "text-white bg-slate-900 border-slate-800"
+                        : ""
+                    )}
+                  >
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent
+                    className={cn(
+                      theme == "dark"
+                        ? "bg-gray-950 text-white border-gray-900"
+                        : "bg-white"
+                    )}
+                  >
+                    {searchKeys?.map((el) => {
+                      return (
+                        <SelectItem value={el?.value}>{el?.label}</SelectItem>
+                      );
+                    })}
+                  </SelectContent>
+                </Select>
+                <Input
+                  placeholder={`Search...`}
+                  value={table.getColumn(key).getFilterValue() ?? ""}
+                  onChange={(event) =>
+                    table.getColumn(key).setFilterValue(event.target.value)
+                  }
+                  className={cn(
+                    "h-10 w-[200px] lg:w-[290px]",
+                    theme == "dark"
+                      ? "text-white bg-slate-900 border-slate-800"
+                      : ""
+                  )}
+                />
+                {isFiltered && (
+                  <Button
+                    variant="ghost"
+                    onClick={() => table.resetColumnFilters()}
+                    className={"h-8 px-2 lg:px-3 bg-primary text-white"}
+                  >
+                    Reset
+                    <X className="ml-2 h-4 w-4" />
+                  </Button>
                 )}
-              >
-                <SelectValue />
-              </SelectTrigger>
-              <SelectContent
-                className={cn(
-                  theme == "dark"
-                    ? "bg-gray-950 text-white border-gray-900"
-                    : "bg-white"
-                )}
-              >
-                {searchKeys?.map((el) => {
-                  return <SelectItem value={el?.value}>{el?.label}</SelectItem>;
-                })}
-              </SelectContent>
-            </Select>
-            <Input
-              placeholder={`Search...`}
-              value={table.getColumn(key).getFilterValue() ?? ""}
-              onChange={(event) =>
-                table.getColumn(key).setFilterValue(event.target.value)
-              }
-              className={cn(
-                "h-10 w-[200px] lg:w-[290px]",
-                theme == "dark"
-                  ? "text-white bg-slate-900 border-slate-800"
-                  : ""
-              )}
-            />
-            {isFiltered && (
-              <Button
-                variant="ghost"
-                onClick={() => table.resetColumnFilters()}
-                className={"h-8 px-2 lg:px-3 bg-primary text-white"}
-              >
-                Reset
-                <X className="ml-2 h-4 w-4" />
-              </Button>
+              </>
             )}
           </div>
           <DataTableViewFilter table={table} theme={theme} />
@@ -144,6 +153,16 @@ const MainDataTable = ({
               )
             );
           })}
+          {searchKeys?.length == 0 && isFiltered && (
+            <Button
+              variant="ghost"
+              onClick={() => table.resetColumnFilters()}
+              className={"h-8 px-2 lg:px-3 bg-primary text-white"}
+            >
+              Reset
+              <X className="ml-2 h-4 w-4" />
+            </Button>
+          )}
         </div>
       </div>
       {/* ToolBar End */}

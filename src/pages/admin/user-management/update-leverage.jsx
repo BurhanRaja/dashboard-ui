@@ -1,6 +1,6 @@
 import AdminCard from "components/admindashboard/common/admin-form";
 import { ContentLayout } from "components/admindashboard/common/content-layout";
-import FormLabel from "components/common/form-label";
+import CustomFormLabel from "components/common/form-label";
 import FormSelectSearch from "components/common/form-select-search";
 import { Button } from "components/ui/button";
 import React from "react";
@@ -12,7 +12,7 @@ const UpdateMt5Leverage = () => {
         title={"Update MT5 Leverage"}
         breadcrumb={[
           { name: "Dashboard", link: "/admin/dashboard" },
-          { name: "User Managment", link: "#" },
+          { name: "User Management", link: "#" },
           { name: "Update MT5 Leverage", link: "#" },
         ]}
       >
@@ -21,7 +21,7 @@ const UpdateMt5Leverage = () => {
             <div className="grid grid-cols-2 gap-4">
               <div className="grid grid-cols-1 gap-4">
                 <div className="mb-3">
-                  <FormLabel htmlfor={"account"} label="Select Account" />
+                  <CustomFormLabel htmlfor={"account"} label="Select Account" compulsory />
                   <FormSelectSearch
                     data={[]}
                     emptyText={"No Account Found"}
@@ -30,7 +30,7 @@ const UpdateMt5Leverage = () => {
                   />
                 </div>
                 <div className="mb-3">
-                  <FormLabel htmlfor={"leverage"} label="Select Leverage" />
+                  <CustomFormLabel htmlfor={"leverage"} label="Select Leverage" compulsory />
                   <FormSelectSearch
                     data={[]}
                     emptyText={"No Leverage Found"}

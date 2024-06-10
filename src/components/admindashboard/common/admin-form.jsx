@@ -10,7 +10,7 @@ const AdminCard = ({ children, table }) => {
     <>
       <Card
         className={cn(
-          "w-full col-span-2 rounded-3xl border-none shadow",
+          "w-full rounded-3xl border-none shadow",
           table ? "px-0.5 py-2 pt-0.5" : " px-0.5 py-4 md:p-6",
           theme == "dark" ? "bg-slate-950" : "bg-white"
         )}

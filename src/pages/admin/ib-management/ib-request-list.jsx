@@ -44,7 +44,7 @@ const IBRequestList = () => {
         title={"IB Request List"}
         breadcrumb={[
           { name: "Dashboard", link: "/admin/dashboard" },
-          { name: "User Managment", link: "#" },
+          { name: "IB Management", link: "#" },
           { name: "IB Request List", link: "#" },
         ]}
       >
