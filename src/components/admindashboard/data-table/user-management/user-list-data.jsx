@@ -1,3 +1,4 @@
+import AlertCheck from "components/common/alert-check";
 import CustomTableActionDropdown from "components/common/data-table/custom-table-action-dropdown";
 import { DataTableColumnHeader } from "components/common/data-table/data-table-column-header";
 import { Button } from "components/ui/button";
@@ -89,9 +90,22 @@ export const userListColumns = [
     cell: ({ row }) => (
       <div className="">
         {row.getValue("login_verified") == "not-verified" ? (
-          <Button className="bg-primary text-white hover:bg-secondary text-xs h-7 px-2 py-3">
-            Verify
-          </Button>
+          <AlertCheck
+            button={
+              <Button className="bg-primary text-white hover:bg-secondary text-xs h-7 px-2 py-3">
+                Verify
+              </Button>
+            }
+            executeButton={
+              <Button className="bg-primary text-white hover:bg-secondary">
+                Verify
+              </Button>
+            }
+            title={"Are you sure?"}
+            description={`You are about to Verify the User named ${row.getValue(
+              "name"
+            )}.`}
+          />
         ) : row.getValue("login_verified") == "verified" ? (
           <p className="text-success">Verified</p>
         ) : (
@@ -140,9 +154,22 @@ export const userListColumns = [
     cell: ({ row }) => (
       <div className="">
         {row.getValue("otp_enabled") == 1 ? (
-          <Button className="bg-primary text-white hover:bg-secondary text-xs h-7 px-2 py-3">
-            Disable
-          </Button>
+          <AlertCheck
+            button={
+              <Button className="bg-primary text-white hover:bg-secondary text-xs h-7 px-2 py-3">
+                Disable
+              </Button>
+            }
+            executeButton={
+              <Button className="bg-primary text-white hover:bg-secondary">
+                Disable
+              </Button>
+            }
+            title={"Are you sure?"}
+            description={`You are about to Disable Google 2FA for a User named ${row.getValue(
+              "name"
+            )}.`}
+          />
         ) : (
           <p className="">Not Enabled</p>
         )}
@@ -157,9 +184,22 @@ export const userListColumns = [
     cell: ({ row }) => (
       <div className="">
         {row.getValue("ib_status") == "pending" ? (
-          <Button className="bg-primary text-white hover:bg-secondary text-xs h-7 px-2 py-3">
-            Promote to IB
-          </Button>
+          <AlertCheck
+            button={
+              <Button className="bg-primary text-white hover:bg-secondary text-xs h-7 px-2 py-3">
+                Promote to IB
+              </Button>
+            }
+            executeButton={
+              <Button className="bg-primary text-white hover:bg-secondary">
+                Promote
+              </Button>
+            }
+            title={"Are you sure?"}
+            description={`You are about to Promote a User named ${row.getValue(
+              "name"
+            )}.`}
+          />
         ) : row.getValue("ib_status") == "approved" ? (
           <p className="text-success">Already IB</p>
         ) : (
@@ -179,62 +219,64 @@ export const userListColumns = [
     cell: ({ row }) => {
       const { theme } = useContext(ThemeContext);
       return (
-        <CustomTableActionDropdown
-          theme={theme}
-          data={[
-            {
-              name: "Edit",
-              icon: (
-                <>
-                  <Edit2 size={15} />
-                </>
-              ),
-              type: "normal",
-              link: `/admin/usermanagement/edituser/${row.getValue("id")}`,
-              customClass: "",
-            },
-            {
-              name: "Details",
-              icon: (
-                <>
-                  <Eye size={15} />
-                </>
-              ),
-              type: "normal",
-              link: `/admin/usermanagement/userdetails/${row.getValue("id")}`,
-              customClass: "",
-            },
-            {
-              name: "Settings",
-              icon: (
-                <>
-                  <Settings size={15} />
-                </>
-              ),
-              type: "normal",
-              link: `/admin/usermanagement/usersettings/${row.getValue("id")}`,
-              customClass: "",
-            },
-            {
-              name: "",
-              icon: <></>,
-              type: "seperator",
-              link: "",
-              customClass: "",
-            },
-            {
-              name: "Delete",
-              icon: (
-                <>
-                  <Trash size={15} />
-                </>
-              ),
-              type: "normal",
-              link: "",
-              customClass: "hover:bg-danger",
-            },
-          ]}
-        />
+        <div className="grid grid-cols-2 gap-2">
+          <CustomTableActionDropdown
+            theme={theme}
+            data={[
+              {
+                name: "Edit",
+                icon: (
+                  <>
+                    <Edit2 size={15} />
+                  </>
+                ),
+                type: "normal",
+                link: `/admin/usermanagement/edituser/${row.getValue("id")}`,
+                customClass: "",
+              },
+              {
+                name: "Details",
+                icon: (
+                  <>
+                    <Eye size={15} />
+                  </>
+                ),
+                type: "normal",
+                link: `/admin/usermanagement/userdetails/${row.getValue("id")}`,
+                customClass: "",
+              },
+              {
+                name: "Settings",
+                icon: (
+                  <>
+                    <Settings size={15} />
+                  </>
+                ),
+                type: "normal",
+                link: `/admin/usermanagement/usersettings/${row.getValue(
+                  "id"
+                )}`,
+                customClass: "",
+              },
+            ]}
+          />
+          <AlertCheck
+            button={
+              <Button className="flex h-8 w-8 p-0 bg-primary text-white hover:bg-secondary">
+                <Trash size={15} />
+              </Button>
+            }
+            executeButton={
+              <Button className="bg-primary text-white hover:bg-secondary">
+                Delete
+              </Button>
+            }
+            title={"Are you sure?"}
+            description={`You are about to Delete a User named ${row.getValue(
+              "name"
+            )}.`}
+          />
+        </div>
       );
     },
   },
