@@ -38,9 +38,6 @@ export function CollapseMenuButton({
 
   const [isCollapsed, setIsCollapsed] = useState();
 
-  console.log("Active Status", activeStatus);
-  console.log("Submenu Active", isSubmenuActive);
-
   useEffect(() => {
     if (!activeStatus && !isSubmenuActive) {
       setIsCollapsed(false);

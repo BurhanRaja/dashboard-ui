@@ -15,8 +15,6 @@ import ThemeContext from "context/theme-context";
 export function ModeToggle() {
   const { theme, setTheme } = useContext(ThemeContext);
 
-  console.log(theme);
-
   return (
     <TooltipProvider disableHoverableContent>
       <Tooltip delayDuration={100}>

@@ -92,9 +92,7 @@ const MultiSelect = React.forwardRef(
       } else {
         selectedValuesSet.current.add(value);
         setSelectedValues([...selectedValues, value]);
-        console.log(selectedValues);
       }
-      console.log(selectedValuesSet.current);
       onValueChange(Array.from(selectedValuesSet.current));
     };
 

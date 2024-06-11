@@ -16,7 +16,6 @@ import ThemeContext from "context/theme-context";
 export function SheetMenu() {
   const { theme } = useContext(ThemeContext);
 
-  console.log(theme);
 
   return (
     <Sheet>

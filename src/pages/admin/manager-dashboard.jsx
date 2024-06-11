@@ -57,7 +57,6 @@ const ManagerDashboard = () => {
 
   //   const [multiSelectData, setMultiSelectData] = useState();
 
-  //   console.log(multiSelectData);
 
   const { theme } = useContext(ThemeContext);
 

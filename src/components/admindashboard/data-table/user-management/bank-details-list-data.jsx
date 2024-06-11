@@ -1,6 +1,10 @@
+import AlertCheck from "components/common/alert-check";
 import { DataTableColumnHeader } from "components/common/data-table/data-table-column-header";
+import Modal from "components/common/modal";
+import BankDetailsRequest from "components/common/modals-content/bank-details-request";
 import { Button } from "components/ui/button";
 import { Check, X } from "lucide-react";
+import { useState } from "react";
 
 export const bankDetailsListColumns = [
   {
@@ -117,20 +121,54 @@ export const bankDetailsListColumns = [
     ),
     cell: ({ row }) => {
       let status = row.getValue("status");
+      const [isOpen, setIsOpen] = useState(false);
+
       if (status == "pending") {
         return (
-          <div className="grid grid-cols-2 gap-2">
-            <div>
-              <Button className="bg-secondary p-2 h-7">
-                <Check size={18} className={""} />
-              </Button>
+          <>
+            <div className="grid grid-cols-2 gap-2">
+              <div>
+                <AlertCheck
+                  button={
+                    <Button className="bg-secondary p-2 h-7">
+                      <Check size={18} className={""} />
+                    </Button>
+                  }
+                  executeButton={
+                    <Button className="bg-primary hover:bg-secondary">
+                      Yes
+                    </Button>
+                  }
+                  title={"Are you sure?"}
+                  description={"You are about to approve the Bank Details."}
+                />
+              </div>
+              <div>
+                <Button
+                  onClick={() => setIsOpen(true)}
+                  className="bg-primary p-2 h-7"
+                >
+                  <X size={18} className={""} />
+                </Button>
+              </div>
+              <div>
+                <Modal
+                  setOpen={(val) => setIsOpen(val)}
+                  isOpen={isOpen}
+                  content={
+                    <BankDetailsRequest
+                      setOpen={(val) => setIsOpen(val)}
+                      value={""}
+                      setValue={() => {}}
+                    />
+                  }
+                  title="Bank Details Reject"
+                  description={""}
+                  width={"max-w-[600px]"}
+                />
+              </div>
             </div>
-            <div>
-              <Button className="bg-primary p-2 h-7">
-                <X size={18} className={""} />
-              </Button>
-            </div>
-          </div>
+          </>
         );
       } else {
         return <></>;

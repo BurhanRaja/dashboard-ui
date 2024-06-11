@@ -1,5 +1,9 @@
 import { DataTableColumnHeader } from "components/common/data-table/data-table-column-header";
+import Modal from "components/common/modal";
+import MT5Details from "components/common/modals-content/mt5-details";
 import { Button } from "components/ui/button";
+import ThemeContext from "context/theme-context";
+import { useContext, useState } from "react";
 
 export const mt5UserListColumns = [
   {
@@ -8,7 +12,6 @@ export const mt5UserListColumns = [
       <DataTableColumnHeader column={column} title="ID" />
     ),
     cell: ({ row }) => {
-      console.log(row.getValue("account_no"));
       return <div className="">{row.getValue("id")}</div>;
     },
     enableSorting: false,
@@ -84,13 +87,35 @@ export const mt5UserListColumns = [
     header: ({ column }) => (
       <DataTableColumnHeader column={column} title="Action" />
     ),
-    cell: ({ row }) => (
-      <div className="">
-        <Button className="bg-primary text-white hover:bg-secondary text-xs h-7 px-2 py-3">
-          Details
-        </Button>
-      </div>
-    ),
+    cell: ({ row }) => {
+      const [isOpen, setIsOpen] = useState(false);
+      const { theme } = useContext(ThemeContext);
+
+      return (
+        <div className="">
+          <Button
+            onClick={() => setIsOpen(true)}
+            className="bg-primary text-white hover:bg-secondary text-xs h-7 px-2 py-3"
+          >
+            Details
+          </Button>
+          <Modal
+            setOpen={(val) => setIsOpen(val)}
+            isOpen={isOpen}
+            content={
+              <MT5Details
+                id={row.getValue("originalid")}
+                checkOpen={isOpen}
+                theme={theme}
+              />
+            }
+            width={"max-w-[1000px]"}
+            title={"MT5 Account Details"}
+            theme={theme}
+          />
+        </div>
+      );
+    },
   },
 ];
 

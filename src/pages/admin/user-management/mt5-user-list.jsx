@@ -23,7 +23,7 @@ const Mt5UserList = () => {
       marketingname: "",
     },
     {
-      id: 1,
+      id: 5,
       account_no: 91452205,
       name: "Prashant Kumar Vadd",
       email: "prashantvadd640@gmail.com",
@@ -35,7 +35,7 @@ const Mt5UserList = () => {
       marketingname: "",
     },
     {
-      id: 1,
+      id: 30,
       account_no: 91452204,
       name: "Rohan Ashok Patil",
       email: "rp2331281@gmail.com",
@@ -47,7 +47,7 @@ const Mt5UserList = () => {
       marketingname: "",
     },
     {
-      id: 1,
+      id: 23,
       account_no: 91452203,
       name: "Adhik Vishwas Patil",
       email: "adhikpatil99@gmail.com",
@@ -80,6 +80,7 @@ const Mt5UserList = () => {
               data={accounts?.map((el, index) => {
                 return {
                   ...el,
+                  originalid: el?.id,
                   id: index + 1,
                 };
               })}

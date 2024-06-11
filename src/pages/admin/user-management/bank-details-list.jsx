@@ -32,7 +32,7 @@ const BankDetailsList = () => {
       ifsccode: "3i2rh3iunk3",
       iban: "wqku212quwed",
       bookbank: "",
-      comment: "Approved by admin",
+      comment: "",
       status: 0,
       createdAt: "2024-05-06",
     },

@@ -1,3 +1,4 @@
+import AlertCheck from "components/common/alert-check";
 import { DataTableColumnHeader } from "components/common/data-table/data-table-column-header";
 import { Button } from "components/ui/button";
 import { Check, X } from "lucide-react";
@@ -128,14 +129,32 @@ export const pendingdepositlistColumns = [
         return (
           <div className="grid grid-cols-2 gap-2">
             <div>
-              <Button className="bg-secondary p-2 h-7">
-                <Check size={18} className={""} />
-              </Button>
+              <AlertCheck
+                button={
+                  <Button className="bg-secondary p-2 h-7">
+                    <Check size={18} className={""} />
+                  </Button>
+                }
+                executeButton={
+                  <Button className="bg-primary hover:bg-secondary">Yes</Button>
+                }
+                title={"Are you Sure?"}
+                description={"You are about to Approve a Deposit Request."}
+              />
             </div>
             <div>
-              <Button className="bg-primary p-2 h-7">
-                <X size={18} className={""} />
-              </Button>
+            <AlertCheck
+                button={
+                  <Button className="bg-primary p-2 h-7">
+                  <X size={18} className={""} />
+                </Button>
+                }
+                executeButton={
+                  <Button className="bg-primary hover:bg-secondary">Yes</Button>
+                }
+                title={"Are you Sure?"}
+                description={"You are about to Reject a Deposit Request."}
+              />
             </div>
           </div>
         );

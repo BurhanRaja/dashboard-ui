@@ -9,7 +9,6 @@ export const userDetailsMt5Columns = [
       <DataTableColumnHeader column={column} title="ID" />
     ),
     cell: ({ row }) => {
-      console.log(row.getValue("account_no"));
       return <div className="">{row.getValue("id")}</div>;
     },
     enableSorting: false,

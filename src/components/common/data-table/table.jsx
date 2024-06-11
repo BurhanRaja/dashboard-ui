@@ -11,7 +11,7 @@ import {
 import { cn } from "lib/utils";
 
 const CustomTable = ({ table, columns, theme }) => {
-  console.log(table.getRowModel().rows);
+
   return (
     <Table className="mb-0 h-10" checkBorder theme={theme}>
       <TableHeader
