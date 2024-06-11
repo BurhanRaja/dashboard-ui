@@ -13,12 +13,12 @@ import {
 import ThemeContext from "context/theme-context";
 import { cn } from "lib/utils";
 
-const AlertCheck = ({ button, executeButton, title, description }) => {
+const AlertCheck = ({ button, executeButton, title, description, isOpen, setOpen }) => {
   const { theme } = useContext(ThemeContext);
+
   return (
     <>
-      <AlertDialog>
-        <AlertDialogTrigger asChild>{button}</AlertDialogTrigger>
+      <AlertDialog open={isOpen} onOpenChange={(open) => setOpen(open)}>
         <AlertDialogContent
           className={cn(
             theme == "dark"

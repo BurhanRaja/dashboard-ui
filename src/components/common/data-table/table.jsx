@@ -59,7 +59,7 @@ const CustomTable = ({ table, columns, theme }) => {
               )}
             >
               {row.getVisibleCells().map((cell) => (
-                <TableCell key={cell.id} className="px-3 text-center">
+                <TableCell key={cell.id} className="px-3 text-center justify-center">
                   {flexRender(cell.column.columnDef.cell, cell.getContext())}
                 </TableCell>
               ))}

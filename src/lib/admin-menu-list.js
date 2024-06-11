@@ -295,9 +295,9 @@ export function getMenuList(pathname) {
               active: pathname === "/admin/transaction/pendingwithdrawlist",
             },
             {
-              href: "/posts/new",
+              href: "/admin/transaction/pendingibwithdrawlist",
               label: "Pending IB Withdraw",
-              active: pathname === "/posts/new",
+              active: pathname === "/admin/transaction/pendingibwithdrawlist",
             },
           ],
         },
@@ -317,9 +317,9 @@ export function getMenuList(pathname) {
               active: pathname === "/admin/marketing/addmarketing",
             },
             {
-              href: "/posts/new",
+              href: "/admin/marketing/marketinglist",
               label: "Marketing List",
-              active: pathname === "/posts/new",
+              active: pathname === "/admin/marketing/marketinglist",
             },
             {
               href: "/posts/new",

@@ -12,7 +12,7 @@ import {
 import ThemeContext from "context/theme-context";
 import { cn } from "lib/utils";
 import { Edit2, Eye, MoreHorizontal, Settings, Trash } from "lucide-react";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 
 export const userListColumns = [
   {
@@ -151,62 +151,76 @@ export const userListColumns = [
     header: ({ column }) => (
       <DataTableColumnHeader column={column} title="Google 2FA" />
     ),
-    cell: ({ row }) => (
-      <div className="">
-        {row.getValue("otp_enabled") == 1 ? (
+    cell: ({ row }) => {
+      const [isOpen, setIsOpen] = useState(false);
+
+      return (
+        <div className="">
           <AlertCheck
-            button={
-              <Button className="bg-primary text-white hover:bg-secondary text-xs h-7 px-2 py-3">
-                Disable
-              </Button>
-            }
             executeButton={
               <Button className="bg-primary text-white hover:bg-secondary">
                 Disable
               </Button>
             }
+            isOpen={isOpen}
+            setOpen={(val) => setIsOpen(val)}
             title={"Are you sure?"}
             description={`You are about to Disable Google 2FA for a User named ${row.getValue(
               "name"
             )}.`}
           />
-        ) : (
-          <p className="">Not Enabled</p>
-        )}
-      </div>
-    ),
+          {row.getValue("otp_enabled") == 1 ? (
+            <Button
+              onClick={() => setIsOpen(true)}
+              className="bg-primary text-white hover:bg-secondary text-xs h-7 px-2 py-3"
+            >
+              Disable
+            </Button>
+          ) : (
+            <p className="">Not Enabled</p>
+          )}
+        </div>
+      );
+    },
   },
   {
     accessorKey: "ib_status",
     header: ({ column }) => (
       <DataTableColumnHeader column={column} title="IB Status" />
     ),
-    cell: ({ row }) => (
-      <div className="">
-        {row.getValue("ib_status") == "pending" ? (
+    cell: ({ row }) => {
+      const [isOpen, setIsOpen] = useState(false);
+
+      return (
+        <div className="">
           <AlertCheck
-            button={
-              <Button className="bg-primary text-white hover:bg-secondary text-xs h-7 px-2 py-3">
-                Promote to IB
-              </Button>
-            }
             executeButton={
               <Button className="bg-primary text-white hover:bg-secondary">
                 Promote
               </Button>
             }
+            isOpen={isOpen}
+            setOpen={(val) => setIsOpen(val)}
             title={"Are you sure?"}
             description={`You are about to Promote a User named ${row.getValue(
               "name"
             )}.`}
           />
-        ) : row.getValue("ib_status") == "approved" ? (
-          <p className="text-success">Already IB</p>
-        ) : (
-          <p className="text-danger">Rejected</p>
-        )}
-      </div>
-    ),
+          {row.getValue("ib_status") == "pending" ? (
+            <Button
+              onClick={() => setIsOpen(true)}
+              className="bg-primary text-white hover:bg-secondary text-xs h-7 px-2 py-3"
+            >
+              Promote to IB
+            </Button>
+          ) : row.getValue("ib_status") == "approved" ? (
+            <p className="text-success">Already IB</p>
+          ) : (
+            <p className="text-danger">Rejected</p>
+          )}
+        </div>
+      );
+    },
     filterFn: (row, id, value) => {
       return value.includes(row.getValue(id));
     },
@@ -218,6 +232,8 @@ export const userListColumns = [
     ),
     cell: ({ row }) => {
       const { theme } = useContext(ThemeContext);
+      const [isOpen, setIsOpen] = useState(false);
+
       return (
         <div className="grid grid-cols-2 gap-2">
           <CustomTableActionDropdown
@@ -258,14 +274,30 @@ export const userListColumns = [
                 )}`,
                 customClass: "",
               },
+              {
+                name: "",
+                icon: <></>,
+                type: "seperator",
+                link: "",
+                customClass: "",
+              },
+              {
+                name: "Delete",
+                icon: (
+                  <>
+                    <Trash size={15} />
+                  </>
+                ),
+                type: "normal",
+                link: ``,
+                customClass: "hover:bg-danger",
+                setOpen: () => setIsOpen(true),
+              },
             ]}
           />
           <AlertCheck
-            button={
-              <Button className="flex h-8 w-8 p-0 bg-primary text-white hover:bg-secondary">
-                <Trash size={15} />
-              </Button>
-            }
+            isOpen={isOpen}
+            setOpen={(val) => setIsOpen(val)}
             executeButton={
               <Button className="bg-primary text-white hover:bg-secondary">
                 Delete

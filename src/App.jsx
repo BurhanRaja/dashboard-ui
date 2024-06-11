@@ -53,6 +53,10 @@ import PendingDepositList from "pages/admin/transaction/pending-deposit-list";
 import PendingWithdrawList from "pages/admin/transaction/pending-withdraw-list";
 import DepositReportList from "pages/admin/report/deposit-report-list";
 import WithdrawReportList from "pages/admin/report/withdraw-report-list";
+import PendingIbwithdrawList from "pages/admin/transaction/pending-ibwithdraw-list";
+import MarketingList from "pages/admin/marketing/marketing-list";
+import BackgroundBeams from "components/common/bg-animation";
+import Login from "pages/admin/auth/login";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -61,120 +65,141 @@ function App() {
     <>
       <BrowserRouter>
         <ThemeProvider>
-          <Layout>
+          {/* <Layout> */}
             <Routes>
-              <Route path="/admin/dashboard" element={<AdminDashboard />} />
-              <Route
-                path="/admin/managementdashboard"
-                element={<ManagerDashboard />}
-              />
-              <Route path="/admin/sendmail" element={<SendMail />} />
-              <Route path="/admin/usermanagement">
-                <Route path="adduser" element={<AddUser />} />
-                <Route path="userlist" element={<UserList />} />
-                <Route path="edituser/:id" element={<EditUser />} />
-                <Route path="userdetails/:id" element={<UserDetails />} />
-                <Route path="usersettings/:id" element={<UserSettings />} />
-                <Route path="mt5userlist" element={<Mt5UserList />} />
-                <Route path="followuplist" element={<FollowUpList />} />
+              <Route path="/login" element={<Login />} />
+              <Route element={<Layout />}>
+                <Route path="/admin/dashboard" element={<AdminDashboard />} />
                 <Route
-                  path="pendingdocumentlist"
-                  element={<PendingDocumentList />}
+                  path="/admin/managementdashboard"
+                  element={<ManagerDashboard />}
                 />
-                <Route
-                  path="approveddocumentlist"
-                  element={<ApprovedDocumentList />}
-                />
-                <Route
-                  path="uploaduserdocument"
-                  element={<UploadUserDocument />}
-                />
-                <Route path="addbankdetails" element={<AddBankDetails />} />
-                <Route path="bankdetailslist" element={<BankDetailsList />} />
-                <Route path="createmt5account" element={<CreateMt5Account />} />
-                <Route path="userpasswordList" element={<UserPasswordList />} />
-                <Route
-                  path="changeuserpassword"
-                  element={<ChangeUserPassword />}
-                />
-                <Route
-                  path="addexistingclient"
-                  element={<AddExisitingClient />}
-                />
-                <Route
-                  path="changemt5password"
-                  element={<ChangeMt5Password />}
-                />
-                <Route
-                  path="updatemt5leverage"
-                  element={<UpdateMt5Leverage />}
-                />
-                <Route
-                  path="resendemailverification"
-                  element={<ResendEmailVerification />}
-                />
-                <Route
-                  path="resendmt5accountdetails"
-                  element={<ResendMT5AccountDetails />}
-                />
-              </Route>
-              <Route path="/admin/bonus">
-                <Route path="givebonus" element={<GiveBonus />} />
-                <Route path="removebonus" element={<RemoveBonus />} />
-                <Route path="bonuslist" element={<BonusList />} />
-              </Route>
-              <Route path="/admin/ibmanagement">
-                <Route path="ibuserlist" element={<IBUserList />} />
-                <Route path="ibrequestlist" element={<IBRequestList />} />
-                <Route path="ibplanlist" element={<IBPlanList />} />
-                <Route path="treetest/:id" element={<IBTreeChart />} />
-                <Route path="addibplan" element={<IBPlanAdd />} />
-                <Route
-                  path="ibcommissiongroup"
-                  element={<IBCommissionGroupList />}
-                />
-                <Route
-                  path="setibcommission"
-                  element={<SetIBCommissionList />}
-                />
-                <Route path="moveclienttoib" element={<MoveIBToClient />} />
-              </Route>
-              <Route path="/admin/groupmanagement">
-                <Route path="addgroup" element={<AddGroup />} />
-                <Route path="updatemt5group" element={<UpdateMt5Group />} />
-                <Route path="grouplist" element={<GroupList />} />
-              </Route>
-              <Route path="/admin/transaction">
-                <Route path="clientdeposit" element={<ClientDeposit />} />
-                <Route path="clientwithdraw" element={<ClientWithdraw />} />
-                <Route path="ibwithdraw" element={<IBWithdraw />} />
-                <Route path="internaltransfer" element={<InternalTransfer />} />
-                <Route
-                  path="pendingdepositlist"
-                  element={<PendingDepositList />}
-                />
-                <Route
-                  path="pendingwithdrawlist"
-                  element={<PendingWithdrawList />}
-                />
-              </Route>
-              <Route path="/admin/marketing">
-                <Route path="addmarketing" element={<AddMarketing />} />
-              </Route>
-              <Route path="/admin/report">
-                <Route path="depositreport" element={<DepositReportList />} />
-                <Route path="withdrawreport" element={<WithdrawReportList />} />
-              </Route>
-              <Route path="/admin/settings">
-                <Route path="promotionlist" element={<PromotionList />} />
-                <Route path="defaultsettings" element={<DefaultSettings />} />
-                <Route path="systemsettings" element={<SystemSettings />} />
-              </Route>
-              <Route path="/admin/subadmin">
-                <Route path="createsubadmin" element={<CreateSubAdmin />} />
+                <Route path="/admin/sendmail" element={<SendMail />} />
+                <Route path="/admin/usermanagement">
+                  <Route path="adduser" element={<AddUser />} />
+                  <Route path="userlist" element={<UserList />} />
+                  <Route path="edituser/:id" element={<EditUser />} />
+                  <Route path="userdetails/:id" element={<UserDetails />} />
+                  <Route path="usersettings/:id" element={<UserSettings />} />
+                  <Route path="mt5userlist" element={<Mt5UserList />} />
+                  <Route path="followuplist" element={<FollowUpList />} />
+                  <Route
+                    path="pendingdocumentlist"
+                    element={<PendingDocumentList />}
+                  />
+                  <Route
+                    path="approveddocumentlist"
+                    element={<ApprovedDocumentList />}
+                  />
+                  <Route
+                    path="uploaduserdocument"
+                    element={<UploadUserDocument />}
+                  />
+                  <Route path="addbankdetails" element={<AddBankDetails />} />
+                  <Route path="bankdetailslist" element={<BankDetailsList />} />
+                  <Route
+                    path="createmt5account"
+                    element={<CreateMt5Account />}
+                  />
+                  <Route
+                    path="userpasswordList"
+                    element={<UserPasswordList />}
+                  />
+                  <Route
+                    path="changeuserpassword"
+                    element={<ChangeUserPassword />}
+                  />
+                  <Route
+                    path="addexistingclient"
+                    element={<AddExisitingClient />}
+                  />
+                  <Route
+                    path="changemt5password"
+                    element={<ChangeMt5Password />}
+                  />
+                  <Route
+                    path="updatemt5leverage"
+                    element={<UpdateMt5Leverage />}
+                  />
+                  <Route
+                    path="resendemailverification"
+                    element={<ResendEmailVerification />}
+                  />
+                  <Route
+                    path="resendmt5accountdetails"
+                    element={<ResendMT5AccountDetails />}
+                  />
+                </Route>
+                <Route path="/admin/bonus">
+                  <Route path="givebonus" element={<GiveBonus />} />
+                  <Route path="removebonus" element={<RemoveBonus />} />
+                  <Route path="bonuslist" element={<BonusList />} />
+                </Route>
+                <Route path="/admin/ibmanagement">
+                  <Route path="ibuserlist" element={<IBUserList />} />
+                  <Route path="ibrequestlist" element={<IBRequestList />} />
+                  <Route path="ibplanlist" element={<IBPlanList />} />
+                  <Route path="treetest/:id" element={<IBTreeChart />} />
+                  <Route path="addibplan" element={<IBPlanAdd />} />
+                  <Route
+                    path="ibcommissiongroup"
+                    element={<IBCommissionGroupList />}
+                  />
+                  <Route
+                    path="setibcommission"
+                    element={<SetIBCommissionList />}
+                  />
+                  <Route path="moveclienttoib" element={<MoveIBToClient />} />
+                </Route>
+                <Route path="/admin/groupmanagement">
+                  <Route path="addgroup" element={<AddGroup />} />
+                  <Route path="updatemt5group" element={<UpdateMt5Group />} />
+                  <Route path="grouplist" element={<GroupList />} />
+                </Route>
+                <Route path="/admin/transaction">
+                  <Route path="clientdeposit" element={<ClientDeposit />} />
+                  <Route path="clientwithdraw" element={<ClientWithdraw />} />
+                  <Route path="ibwithdraw" element={<IBWithdraw />} />
+                  <Route
+                    path="internaltransfer"
+                    element={<InternalTransfer />}
+                  />
+                  <Route
+                    path="pendingdepositlist"
+                    element={<PendingDepositList />}
+                  />
+                  <Route
+                    path="pendingwithdrawlist"
+                    element={<PendingWithdrawList />}
+                  />
+                  <Route
+                    path="pendingibwithdrawlist"
+                    element={<PendingIbwithdrawList />}
+                  />
+                </Route>
+                <Route path="/admin/marketing">
+                  <Route path="addmarketing" element={<AddMarketing />} />
+                  <Route path="marketinglist" element={<MarketingList />} />
+                </Route>
+                <Route path="/admin/report">
+                  <Route path="depositreport" element={<DepositReportList />} />
+                  <Route
+                    path="withdrawreport"
+                    element={<WithdrawReportList />}
+                  />
+                </Route>
+                <Route path="/admin/settings">
+                  <Route path="promotionlist" element={<PromotionList />} />
+                  <Route path="defaultsettings" element={<DefaultSettings />} />
+                  <Route path="systemsettings" element={<SystemSettings />} />
+                </Route>
+                <Route path="/admin/subadmin">
+                  <Route path="createsubadmin" element={<CreateSubAdmin />} />
+                </Route>
+                <Route path="/background" element={<BackgroundBeams />} />
               </Route>
             </Routes>
-          </Layout>
+          {/* </Layout> */}
         </ThemeProvider>
       </BrowserRouter>
     </>

@@ -41,6 +41,7 @@ const CustomTableActionDropdown = ({ data, customWidth }) => {
                 <Link to={el?.link}>
                   <DropdownMenuItem
                     key={el?.name}
+                    onClick={() => el?.setOpen ? el?.setOpen(true) : {}}
                     className={cn(
                       "hover:cursor-pointer rounded-md",
                       theme == "dark"

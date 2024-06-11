@@ -122,26 +122,25 @@ export const bankDetailsListColumns = [
     cell: ({ row }) => {
       let status = row.getValue("status");
       const [isOpen, setIsOpen] = useState(false);
+      const [isAlert, setAlert] = useState(false);
 
       if (status == "pending") {
         return (
           <>
             <div className="grid grid-cols-2 gap-2">
+              <AlertCheck
+                isOpen={isAlert}
+                setOpen={(val) => setAlert(val)}
+                executeButton={
+                  <Button className="bg-primary hover:bg-secondary">Approve</Button>
+                }
+                title={"Are you sure?"}
+                description={"You are about to approve the Bank Details."}
+              />
               <div>
-                <AlertCheck
-                  button={
-                    <Button className="bg-secondary p-2 h-7">
-                      <Check size={18} className={""} />
-                    </Button>
-                  }
-                  executeButton={
-                    <Button className="bg-primary hover:bg-secondary">
-                      Yes
-                    </Button>
-                  }
-                  title={"Are you sure?"}
-                  description={"You are about to approve the Bank Details."}
-                />
+                <Button onClick={() => setAlert(true)} className="bg-secondary p-2 h-7">
+                  <Check size={18} className={""} />
+                </Button>
               </div>
               <div>
                 <Button

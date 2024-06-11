@@ -2,6 +2,7 @@ import AlertCheck from "components/common/alert-check";
 import { DataTableColumnHeader } from "components/common/data-table/data-table-column-header";
 import { Button } from "components/ui/button";
 import { Check, X } from "lucide-react";
+import { useState } from "react";
 
 export const pendingWithdrawlistColumns = [
   {
@@ -117,32 +118,45 @@ export const pendingWithdrawlistColumns = [
     ),
     cell: ({ row }) => {
       let status = row.getValue("status");
+      const [checkOpen, setCheckOpen] = useState(false);
+      const [xOpen, setXOpen] = useState(false);
+
       if (status == "pending") {
         return (
           <div className="grid grid-cols-2 gap-2">
             <div>
               <AlertCheck
-                button={
-                  <Button className="bg-secondary p-2 h-7">
-                    <Check size={18} className={""} />
-                  </Button>
-                }
+                isOpen={checkOpen}
+                setOpen={(val) => setCheckOpen(val)}
                 executeButton={
-                  <Button className="bg-primary hover:bg-secondary">Yes</Button>
+                  <Button className="bg-primary hover:bg-secondary">
+                    Approve
+                  </Button>
                 }
                 title={"Are you Sure?"}
                 description={"You are about to Approve a Withdraw Request."}
               />
+              <Button
+                className="bg-secondary p-2 h-7"
+                onClick={() => setCheckOpen(true)}
+              >
+                <Check size={18} className={""} />
+              </Button>
             </div>
             <div>
-            <AlertCheck
-                button={
-                  <Button className="bg-primary p-2 h-7">
-                  <X size={18} className={""} />
-                </Button>
-                }
+              <Button
+                className="bg-primary p-2 h-7"
+                onClick={() => setXOpen(true)}
+              >
+                <X size={18} className={""} />
+              </Button>
+              <AlertCheck
+                isOpen={xOpen}
+                setOpen={(val) => setXOpen(val)}
                 executeButton={
-                  <Button className="bg-primary hover:bg-secondary">Yes</Button>
+                  <Button className="bg-primary hover:bg-secondary">
+                    Reject
+                  </Button>
                 }
                 title={"Are you Sure?"}
                 description={"You are about to Reject a Withdraw Request."}

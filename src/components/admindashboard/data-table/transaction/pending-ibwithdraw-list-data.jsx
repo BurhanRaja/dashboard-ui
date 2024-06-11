@@ -4,7 +4,7 @@ import { Button } from "components/ui/button";
 import { Check, X } from "lucide-react";
 import { useState } from "react";
 
-export const pendingdepositlistColumns = [
+export const ibwithdrawListColumns = [
   {
     accessorKey: "id",
     header: ({ column }) => (
@@ -26,12 +26,12 @@ export const pendingdepositlistColumns = [
     },
   },
   {
-    accessorKey: "depositTo",
+    accessorKey: "withdrawTo",
     header: ({ column }) => (
-      <DataTableColumnHeader column={column} title="Deposit To" />
+      <DataTableColumnHeader column={column} title="Withdraw To" />
     ),
     cell: ({ row }) => {
-      return <div className="">{row.getValue("depositTo")}</div>;
+      return <div className="">{row.getValue("withdrawTo")}</div>;
     },
   },
   {
@@ -56,27 +56,9 @@ export const pendingdepositlistColumns = [
     },
   },
   {
-    accessorKey: "paymentid",
-    header: ({ column }) => (
-      <DataTableColumnHeader column={column} title="Transaction ID" />
-    ),
-    cell: ({ row }) => {
-      return <div className="">{row.getValue("paymentid")}</div>;
-    },
-  },
-  {
-    accessorKey: "depositproof",
-    header: ({ column }) => (
-      <DataTableColumnHeader column={column} title="Deposit Proof" />
-    ),
-    cell: ({ row }) => {
-      return <div className="">{row.getValue("depositproof")}</div>;
-    },
-  },
-  {
     accessorKey: "note",
     header: ({ column }) => (
-      <DataTableColumnHeader column={column} title="Note" />
+      <DataTableColumnHeader column={column} title="Payment Method" />
     ),
     cell: ({ row }) => {
       return <div className="">{row.getValue("note")}</div>;
@@ -142,7 +124,7 @@ export const pendingdepositlistColumns = [
                   </Button>
                 }
                 title={"Are you Sure?"}
-                description={"You are about to Approve a Deposit Request."}
+                description={"You are about to Approve an IB Withdraw Request."}
               />
               <Button
                 className="bg-secondary p-2 h-7"
@@ -167,7 +149,7 @@ export const pendingdepositlistColumns = [
                   </Button>
                 }
                 title={"Are you Sure?"}
-                description={"You are about to Reject a Deposit Request."}
+                description={"You are about to Reject an IB Withdraw Request."}
               />
             </div>
           </div>
@@ -179,14 +161,14 @@ export const pendingdepositlistColumns = [
   },
 ];
 
-export const pendingDepositSearchKeys = [
+export const ibWithdrawListSearchKeys = [
   {
     value: "nameEmail",
     label: "Name/Email",
   },
   {
-    value: "depositTo",
-    label: "Deposit To",
+    value: "withdrawTo",
+    label: "Withdraw To",
   },
   {
     value: "marketingname",
@@ -204,12 +186,16 @@ export const paymentmethod = [
     label: "cash",
   },
   {
+    value: "mt5",
+    label: "MT5 Account",
+  },
+  {
     value: "crypto",
     label: "crypto",
   },
 ];
 
-export const pendingDepositFacetFilter = [
+export const ibWithdrawListFacetFilter = [
   {
     key: "paymentmethod",
     title: "Payment Method",

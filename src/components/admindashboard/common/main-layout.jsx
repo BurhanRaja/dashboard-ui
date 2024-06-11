@@ -7,6 +7,7 @@ import { Sidebar } from "./sidebar";
 import { useSidebarToggle } from "../../../hooks/use-sidebar-toogle";
 import { useContext } from "react";
 import ThemeContext from "context/theme-context";
+import { Outlet } from "react-router-dom";
 
 export default function Layout({ children }) {
   const sidebar = useStore(useSidebarToggle, (state) => state);
@@ -24,7 +25,7 @@ export default function Layout({ children }) {
           theme == "dark" ? "bg-gray-900" : " bg-mainbg"
         )}
       >
-        {children}
+        <Outlet />
       </main>
       <footer
         className={cn(
