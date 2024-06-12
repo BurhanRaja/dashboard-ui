@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import AdminDashboard from "pages/admin/dashboard";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import ThemeProvider from "providers/ThemeProvider";
 import ManagerDashboard from "pages/admin/manager-dashboard";
 import Layout from "components/admindashboard/common/main-layout";
@@ -68,6 +68,7 @@ function App() {
         <ThemeProvider>
           {/* <Layout> */}
           <Routes>
+            <Route path="/" element={<Navigate to={"/login"} />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route element={<Layout />}>
