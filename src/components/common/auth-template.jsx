@@ -5,9 +5,11 @@ const AuthTemplate = ({ children }) => {
   return (
     <>
       <div class="bg-neutral-950">
-        <div className="grid grid-cols-2">
-          <div className="flex justify-center items-center">{children}</div>
-          <div className="h-[44rem] overflow-hidden w-full rounded-l-[3rem] bg-gray-900 relative flex items-start justify-start antialiased">
+        <div className="grid grid-cols-1 lg:grid-cols-2">
+          <div className="flex justify-center items-center py-3">
+            {children}
+          </div>
+          <div className="hidden lg:flex md:h-[60rem] xl:h-[48rem] overflow-hidden w-full rounded-l-[3rem] bg-gray-900 relative items-start justify-start antialiased">
             <div className="p-12">
               <h1 className="relative z-10 text-lg md:text-4xl  bg-clip-text text-transparent bg-gradient-to-b from-slate-200 to-slate-600 font-sans font-bold">
                 Get Started
@@ -19,7 +21,7 @@ const AuthTemplate = ({ children }) => {
             </div>
             <img
               src="./candle-stick.jpg"
-              className="w-[100%] bottom-0 translate-y-36 rounded-[3.5rem] absolute"
+              className="w-[100%] bottom-0 translate-y-24 rounded-[3.5rem] absolute hidden lg:block"
             />
             <BackgroundBeams />
           </div>

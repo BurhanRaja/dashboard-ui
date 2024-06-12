@@ -13,9 +13,12 @@ const Register = () => {
   return (
     <>
       <AuthTemplate>
-        <Card className="bg-gray-950 text-white w-[80%] rounded-xl border-slate-800 p-6 py-3">
-          <CardHeader>
-            <div className="flex justify-between items-center mb-7">
+        <Card className="bg-gray-950 text-white w-[100%] xl:w-[80%] rounded-xl border-slate-800 p-6 py-3">
+          <CardHeader className="space-y-4">
+            <div className="">
+              <img src="./logotechysquad-light.png" />
+            </div>
+            <div className="flex justify-between items-center mb-5">
               <div>
                 <CardTitle className="text-2xl">Sign Up</CardTitle>
               </div>
@@ -39,7 +42,7 @@ const Register = () => {
           </CardHeader>
           <CardContent>
             <div className="grid gap-4">
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 xl:grid-cols-2 gap-4">
                 <div className="grid gap-2">
                   <CustomFormLabel htmlFor="name" label={"Name"} compulsory />
                   <FormInput id="name" placeholder="Enter Name" />
@@ -49,9 +52,13 @@ const Register = () => {
                   <FormInput id="email" placeholder="Enter Email" />
                 </div>
               </div>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 xl:grid-cols-2 gap-4">
                 <div className="grid gap-2">
-                  <CustomFormLabel htmlFor="password" label={"Password"} compulsory />
+                  <CustomFormLabel
+                    htmlFor="password"
+                    label={"Password"}
+                    compulsory
+                  />
                   <FormInput id="password" placeholder="Enter Password" />
                 </div>
                 <div className="grid gap-2">
