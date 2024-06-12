@@ -1,5 +1,7 @@
 import BackgroundBeams from "components/common/bg-animation";
-
+import FormInput from "components/common/form-input";
+import CustomFormLabel from "components/common/form-label";
+import { FcGoogle } from "react-icons/fc";
 import { Button } from "components/ui/button";
 import {
   Card,
@@ -12,85 +14,61 @@ import { Input } from "components/ui/input";
 import { Label } from "components/ui/label";
 import React from "react";
 import { Link } from "react-router-dom";
+import FormSelectSearch from "components/common/form-select-search";
+import AuthTemplate from "components/common/auth-template";
 
 const Login = () => {
   return (
-    <div class="bg-slate-900">
-      <div className="grid grid-cols-2">
-        <div className="flex justify-center items-center">
-          <Card className="bg-gray-950 text-white w-[80%] rounded-2xl border-slate-800">
-            <CardHeader>
-              <CardTitle className="text-xl">Sign Up</CardTitle>
-              <CardDescription className="pb-4">
-                Enter your information to create an account
-              </CardDescription>
-              <Button variant="outline" className="w-full">
-                Sign up with Google
-              </Button>
-            </CardHeader>
-            <CardContent>
-              <div className="grid gap-4">
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="grid gap-2">
-                    <Label htmlFor="first-name">First name</Label>
-                    <Input id="first-name" placeholder="Max" required />
-                  </div>
-                  <div className="grid gap-2">
-                    <Label htmlFor="last-name">Last name</Label>
-                    <Input id="last-name" placeholder="Robinson" required />
-                  </div>
-                </div>
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="grid gap-2">
-                    <Label htmlFor="first-name">First name</Label>
-                    <Input id="first-name" placeholder="Max" required />
-                  </div>
-                  <div className="grid gap-2">
-                    <Label htmlFor="last-name">Last name</Label>
-                    <Input id="last-name" placeholder="Robinson" required />
-                  </div>
-                </div>
-                <div className="grid gap-2">
-                  <Label htmlFor="email">Email</Label>
-                  <Input
-                    id="email"
-                    type="email"
-                    placeholder="m@example.com"
-                    required
-                  />
-                </div>
-                <div className="grid gap-2">
-                  <Label htmlFor="password">Password</Label>
-                  <Input id="password" type="password" />
-                </div>
-                <Button type="submit" className="w-full">
-                  Create an account
-                </Button>
-              </div>
-              <div className="mt-4 text-center text-sm">
-                Already have an account?{" "}
-                <Link href="#" className="underline">
-                  Sign in
+    <AuthTemplate>
+      <Card className="bg-gray-950 text-white w-[70%] rounded-xl border-slate-800 p-6 py-3">
+        <CardHeader>
+          <div className="flex justify-between items-center mb-7">
+            <div>
+              <CardTitle className="text-2xl">Sign In</CardTitle>
+            </div>
+            <div>
+              <div className="mt-4 text-sm">
+                Don't have an Account?{" "}
+                <Link to="/register" className="underline">
+                  Sign Up
                 </Link>
               </div>
-            </CardContent>
-          </Card>
-        </div>
-        <div className="h-[44rem] w-full rounded-l-3xl bg-gray-950 relative flex items-start justify-start antialiased">
-          <div className="p-12">
-            <h1 className="relative z-10 text-lg md:text-4xl  bg-clip-text text-transparent bg-gradient-to-b from-slate-200 to-slate-600 font-sans font-bold">
-             Get Started
-            </h1>
-            <p></p>
-            <p className="text-neutral-500 max-w-lg mx-auto my-2 text-lg relative z-10">
-            Create an account to experience our
-            powerful CRM tool.
-            </p>
+            </div>
           </div>
-          <BackgroundBeams />
-        </div>
-      </div>
-    </div>
+          <Button
+            variant="outline"
+            className="w-full bg-slate-900 border-slate-800 hover:bg-white hover:text-slate-950"
+          >
+            <FcGoogle className="text-2xl mr-3" />
+            <span>Sign in with Google</span>
+          </Button>
+          <p className="text-center text-xs pt-3 sign-or">OR</p>
+        </CardHeader>
+        <CardContent>
+          <div className="grid gap-4">
+            <div className="">
+              <CustomFormLabel htmlFor="email" label={"Email"} compulsory />
+              <FormInput id="email" placeholder="Enter Email" />
+            </div>
+            <div className="">
+              <CustomFormLabel htmlFor="password" label={"Password"} compulsory />
+              <FormInput id="password" placeholder="Enter Password" />
+              <p className="flex justify-end mt-2">
+                <Link to={""} className="underline text-xs">
+                  Forget Password?
+                </Link>
+              </p>
+            </div>
+            <Button
+              type="submit"
+              className="w-full bg-primary mt-5 hover:bg-secondary"
+            >
+              Sign In
+            </Button>
+          </div>
+        </CardContent>
+      </Card>
+    </AuthTemplate>
   );
 };
 
