@@ -55,7 +55,7 @@ import DepositReportList from "pages/admin/report/deposit-report-list";
 import WithdrawReportList from "pages/admin/report/withdraw-report-list";
 import PendingIbwithdrawList from "pages/admin/transaction/pending-ibwithdraw-list";
 import MarketingList from "pages/admin/marketing/marketing-list";
-import BackgroundBeams from "components/common/bg-animation";
+import BackgroundBeams from "components/common/animation/bg-animation";
 import Login from "pages/admin/auth/login";
 import Register from "pages/admin/auth/register";
 
@@ -68,9 +68,9 @@ function App() {
         <ThemeProvider>
           {/* <Layout> */}
           <Routes>
-            <Route path="/" element={<Navigate to={"/login"} />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
+            <Route path="/" element={<Navigate to={"/admin/login"} />} />
+            <Route path="/admin/login" element={<Login />} />
+            <Route path="/admin/register" element={<Register />} />
             <Route element={<Layout />}>
               <Route path="/admin/dashboard" element={<AdminDashboard />} />
               <Route

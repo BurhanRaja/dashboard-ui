@@ -1,5 +1,5 @@
 import React from "react";
-import BackgroundBeams from "components/common/bg-animation";
+import BackgroundBeams from "components/common/animation/bg-animation";
 
 const AuthTemplate = ({ children }) => {
   return (
@@ -20,7 +20,7 @@ const AuthTemplate = ({ children }) => {
               </p>
             </div>
             <img
-              src="./candle-stick.jpg"
+              src="/candle-stick.jpg"
               className="w-[100%] bottom-0 translate-y-24 rounded-[3.5rem] absolute hidden lg:block"
             />
             <BackgroundBeams />

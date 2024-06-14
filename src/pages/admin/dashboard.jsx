@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { ContentLayout } from "components/admindashboard/common/content-layout";
 import { Card, CardContent, CardHeader, CardTitle } from "components/ui/card";
 import {
@@ -20,6 +20,84 @@ import { cn } from "lib/utils";
 const AdminDashboard = () => {
   const { theme } = useContext(ThemeContext);
 
+  const [loading, setLoading] = useState(false);
+  const [usersCount, setUsersCount] = useState(0);
+  const [ibusersCount, setIBUsersCount] = useState(0);
+  const [pendingDocsCount, setPendingDocsCount] = useState(0);
+  const [pendingDepositCount, setPendingDepositCount] = useState(0);
+  const [pendingWithdrawCount, setpendingWithdrawCount] = useState(0);
+  const [pendingIBWithdrawCount, setpendingIBWithdrawCount] = useState(0);
+
+  const handleDashboardData = async () => {
+    setLoading(true);
+
+    const [response1, response2, response3, response4, response5, response6] =
+      await Promise.all([
+        fetch("https://tsapi.tradeinfy.com/api/admin/users/total", {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("admintoken")}`,
+          },
+        }),
+        fetch("https://tsapi.tradeinfy.com/api/admin/ib/users/total", {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("admintoken")}`,
+          },
+        }),
+        fetch("https://tsapi.tradeinfy.com/api/admin/users/kycpending/total", {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("admintoken")}`,
+          },
+        }),
+        fetch("https://tsapi.tradeinfy.com/api/admin/deposit/pending/total", {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("admintoken")}`,
+          },
+        }),
+        fetch("https://tsapi.tradeinfy.com/api/admin/withdraw/pending/total", {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("admintoken")}`,
+          },
+        }),
+        fetch("https://tsapi.tradeinfy.com/api/admin/ib/pendingibwithdraw", {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("admintoken")}`,
+          },
+        }),
+      ]);
+
+    const totalUsers = await response1.json();
+    const totalIBUsers = await response2.json();
+    const totalPendingDocs = await response3.json();
+    const totalPendingDeposit = await response4.json();
+    const totalPendingWithdraw = await response5.json();
+    const totalPendingIBWithdraw = await response6.json();
+
+    if (totalUsers?.status == 200 && totalUsers?.success == true) {
+      setUsersCount(totalUsers?.data?.total_users);
+    }
+    if (totalIBUsers?.status == 200 && totalIBUsers?.success == true) {
+      setIBUsersCount(totalIBUsers?.data?.total_users_ib);
+    }
+    if (totalPendingDocs?.status == 200 && totalPendingDocs?.success == true) {
+      setPendingDocsCount(totalPendingDocs?.data?.total_pending_kyc);
+    }
+    if (totalPendingDeposit?.status == 200 && totalPendingDeposit?.success == true) {
+      setPendingDepositCount(totalPendingDeposit?.data?.total_pending_deposit);
+    }
+    if (totalPendingWithdraw?.status == 200 && totalPendingWithdraw?.success == true) {
+      setpendingWithdrawCount(totalPendingWithdraw?.data?.total_pending_withdraw);
+    }
+    if (totalPendingIBWithdraw?.status == 200 && totalPendingIBWithdraw?.success == true) {
+      setpendingIBWithdrawCount(totalPendingIBWithdraw?.data?.length);
+    }
+
+    setLoading(false);
+  };
+
+  useEffect(() => {
+    handleDashboardData();
+  }, []);
+
   return (
     <>
       <ContentLayout
@@ -37,7 +115,8 @@ const AdminDashboard = () => {
               </Button>
             }
             link={"/"}
-            count={10}
+            count={usersCount}
+            isLoading={loading}
           />
           <DashCard
             title={"Total IBs"}
@@ -49,7 +128,8 @@ const AdminDashboard = () => {
               </Button>
             }
             link={"/"}
-            count={4}
+            count={ibusersCount}
+            isLoading={loading}
           />
           <DashCard
             title={"Pending Documents"}
@@ -61,7 +141,8 @@ const AdminDashboard = () => {
               </Button>
             }
             link={"/"}
-            count={6}
+            count={pendingDocsCount}
+            isLoading={loading}
           />
           <DashCard
             title={"Pending Deposits"}
@@ -73,7 +154,8 @@ const AdminDashboard = () => {
               </Button>
             }
             link={"/"}
-            count={2}
+            count={pendingDepositCount}
+            isLoading={loading}
           />
           <DashCard
             title={"Pending Withdraws"}
@@ -85,7 +167,8 @@ const AdminDashboard = () => {
               </Button>
             }
             link={"/"}
-            count={2}
+            count={pendingWithdrawCount}
+            isLoading={loading}
           />
           <DashCard
             title={"Pending IB Withdraws"}
@@ -97,7 +180,8 @@ const AdminDashboard = () => {
               </Button>
             }
             link={"/"}
-            count={2}
+            count={pendingIBWithdrawCount}
+            isLoading={loading}
           />
         </div>
         <div className="grid gap-4 grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-3 mb-6">

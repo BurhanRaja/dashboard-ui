@@ -16,7 +16,7 @@ const Register = () => {
         <Card className="bg-gray-950 text-white w-[100%] xl:w-[80%] rounded-xl border-slate-800 p-6 py-3">
           <CardHeader className="space-y-4">
             <div className="">
-              <img src="./logotechysquad-light.png" />
+              <img src="/logotechysquad-light.png" />
             </div>
             <div className="flex justify-between items-center mb-5">
               <div>
@@ -25,7 +25,7 @@ const Register = () => {
               <div>
                 <div className="mt-4 text-sm">
                   Already have an account?{" "}
-                  <Link to="/login" className="underline">
+                  <Link to="/admin/login" className="underline">
                     Sign in
                   </Link>
                 </div>
